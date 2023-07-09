@@ -1,4 +1,5 @@
 package hospital.user;
+import java.util.Date;
 
 
 /**
@@ -7,19 +8,26 @@ package hospital.user;
  * --id
  * --姓名
  * --密码
- * --年龄
  * --性别
+ * --年龄
+ * --身份证号
+ * --电话号码
+ * --邮箱
+ * --出生日期
  */
 public class Patient {
     private int id;
     private String name;
     private String password;
-    private int age;
     private String sex;
+    private int age;
+    private String idnum;
+    private String phone;
+    private String email;
+    private Date birth;
 
-    public int getId() {
-        return id;
-    }
+
+    public int getId() { return id; }
 
     public void setId(int id) {
         this.id = id;
@@ -41,6 +49,14 @@ public class Patient {
         this.password = password;
     }
 
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
     public int getAge() {
         return age;
     }
@@ -49,11 +65,19 @@ public class Patient {
         this.age = age;
     }
 
-    public String getSex() {
-        return sex;
+    public String getIdnum() {
+        return idnum;
     }
 
-    public void setSex(String sex) {
-        this.sex = sex;
+    public void setIdnum(String idnum) {
+        this.idnum = idnum;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }
