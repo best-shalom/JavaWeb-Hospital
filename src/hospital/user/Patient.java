@@ -18,6 +18,12 @@ public class Patient {
     private int age;
     private String sex;
 
+    private  String PhoneNumber;
+    private  String DateOfBirth;
+    private  String IdCard;
+    private  String Email;
+
+
     public int getId() {
         return id;
     }
@@ -57,4 +63,21 @@ public class Patient {
     public void setSex(String sex) {
         this.sex = sex;
     }
+
+    public void setPhoneNumber(String phoneNumber) {this.PhoneNumber = phoneNumber;}
+
+    public void setDateOfBirth(String dateOfBirth) {this.DateOfBirth = dateOfBirth;}
+
+    public void setIdCard(String idCard) { this.IdCard = idCard;}
+
+    public void setEmail(String email) { this.Email = email; }
+
+    public String getIdCard() {return IdCard;}
+
+
+    public String getEmail() {return Email;}
+
+    public String getDateOfBirth() { return DateOfBirth; }
+
+    public String getPhoneNumber() {return PhoneNumber;}
 }

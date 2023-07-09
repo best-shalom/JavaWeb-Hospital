@@ -34,3 +34,10 @@ input[type="submit"] {
     border: none;
     cursor: pointer;
 }
+
+    /* style.css */
+
+.doctor-option {
+    font-weight: bold;
+    color: blue;
+}

@@ -18,23 +18,31 @@ public class PatientDaoImpl implements PatientDao {
     public Patient add(Patient patient) {
         try{
             Connection connection= DbConnection.getConnection();
-            String sql="insert into patient(name,password,age,sex) values(?,?,?,?)";
+            String sql="insert into patients(Name,Password,Sex,Age,IDCard,PhoneNumber,Email,DateOfBirth) values(?,?,?,?,?,?,?,?)";
             PreparedStatement pt=connection.prepareStatement(sql);
             pt.setString(1,patient.getName());
             pt.setString(2,patient.getPassword());
-            pt.setInt(3,patient.getAge());
-            pt.setString(4,patient.getSex());
+            pt.setString(3,patient.getSex());
+            pt.setInt(4,patient.getAge());
+            pt.setString(5,patient.getIdCard());
+            pt.setString(6,patient.getPhoneNumber());
+            pt.setString(7,patient.getEmail());
+            pt.setString(8,patient.getDateOfBirth());
             if(pt.executeUpdate()>0){
                 //返回添加成功的patient以获取分配的id
-                String s="select * from patient where name=? and password=? and age=? and sex=?";
+                String s="select * from patients where Name=? and Password=? and Sex=? and Age=? and IDCard=? and PhoneNumber=? and Email=? and DateOfBirth=?";
                 PreparedStatement p=connection.prepareStatement(s);
                 p.setString(1,patient.getName());
                 p.setString(2,patient.getPassword());
-                p.setInt(3,patient.getAge());
-                p.setString(4,patient.getSex());
+                p.setString(3,patient.getSex());
+                p.setInt(4,patient.getAge());
+                p.setString(5,patient.getIdCard());
+                p.setString(6,patient.getPhoneNumber());
+                p.setString(7,patient.getEmail());
+                p.setString(8,patient.getDateOfBirth());
                 ResultSet rs=p.executeQuery();
                 if(rs.next()){
-                    patient.setId(rs.getInt("id"));
+                    patient.setId(rs.getInt("UserID"));
                     return patient;
                 }
             }
