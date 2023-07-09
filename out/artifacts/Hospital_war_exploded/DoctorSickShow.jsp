@@ -10,7 +10,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>病人数据</title>
+    <title>病人数据23524535</title>
     <%--在医生的科室病人显示页面中,包含对病人数据的删除和更新操作--%>
 </head>
 <body>
