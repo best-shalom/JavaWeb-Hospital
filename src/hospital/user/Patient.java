@@ -1,5 +1,4 @@
 package hospital.user;
-import java.util.Date;
 
 
 /**
@@ -8,26 +7,26 @@ import java.util.Date;
  * --id
  * --姓名
  * --密码
- * --性别
  * --年龄
- * --身份证号
- * --电话号码
- * --邮箱
- * --出生日期
+ * --性别
  */
+
 public class Patient {
     private int id;
     private String name;
     private String password;
-    private String sex;
     private int age;
-    private String idnum;
-    private String phone;
-    private String email;
-    private Date birth;
+    private String sex;
+
+    private  String PhoneNumber;
+    private  String DateOfBirth;
+    private  String IdCard;
+    private  String Email;
 
 
-    public int getId() { return id; }
+    public int getId() {
+        return id;
+    }
 
     public void setId(int id) {
         this.id = id;
@@ -49,14 +48,6 @@ public class Patient {
         this.password = password;
     }
 
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
-
     public int getAge() {
         return age;
     }
@@ -65,19 +56,28 @@ public class Patient {
         this.age = age;
     }
 
-    public String getIdnum() {
-        return idnum;
+    public String getSex() {
+        return sex;
     }
 
-    public void setIdnum(String idnum) {
-        this.idnum = idnum;
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 
-    public String getPhone() {
-        return phone;
-    }
+    public void setPhoneNumber(String phoneNumber) {this.PhoneNumber = phoneNumber;}
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
+    public void setDateOfBirth(String dateOfBirth) {this.DateOfBirth = dateOfBirth;}
+
+    public void setIdCard(String idCard) { this.IdCard = idCard;}
+
+    public void setEmail(String email) { this.Email = email; }
+
+    public String getIdCard() {return IdCard;}
+
+
+    public String getEmail() {return Email;}
+
+    public String getDateOfBirth() { return DateOfBirth; }
+
+    public String getPhoneNumber() {return PhoneNumber;}
 }

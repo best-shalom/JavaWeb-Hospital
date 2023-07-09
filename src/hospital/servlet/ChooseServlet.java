@@ -25,8 +25,11 @@ public class ChooseServlet extends HttpServlet {
             resp.getWriter().write("转向病人登录");
             resp.sendRedirect("PatientLogin.jsp");
         }
-        else{
-            resp.getWriter().write("选择失败!");
+        else if(Objects.equals(choose, "root")){
+            resp.getWriter().write("转向管理员登陆");
+            resp.sendRedirect("RootLogin.jsp");
+        } else{
+            resp.getWriter().write("未知错误");
             resp.sendRedirect("Error.jsp");
         }
     }

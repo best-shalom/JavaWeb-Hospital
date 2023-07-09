@@ -35,12 +35,17 @@ public class PatientService {
         return true;
     }
 
-    public Patient PatientRegister(String name,String password,int age,String sex){
+    public Patient PatientRegister(String name,String password,int age,String sex,String email,String idCard,String DateOfBirth,String PhoneNumber){
         Patient patient=new Patient();
         patient.setName(name);
         patient.setPassword(password);
         patient.setAge(age);
         patient.setSex(sex);
+        patient.setEmail(email);
+        patient.setIdCard(idCard);
+        patient.setDateOfBirth(DateOfBirth);
+        patient.setPhoneNumber(PhoneNumber);
+
         return patientDao.add(patient);
     }
 
