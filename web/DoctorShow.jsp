@@ -15,12 +15,16 @@
 <body>
 <table border="1">
     <tr>
-        <th>ID</th>
-        <th>姓名</th>
-        <th>密码</th>
-        <th>年龄</th>
-        <th>性别</th>
-        <th>科室</th>
+        <th>DoctorID</th>
+        <th>DoctorName</th>
+        <th>D_Password</th>
+        <th>sex</th>
+        <th>age</th>
+        <th>phone</th>
+        <th>hospital</th>
+        <th>DepartmentName</th>
+        <th>ProfessionalTitle</th>
+        <th>introduction</th>
     </tr>
     <%
         DoctorService doctorService=new DoctorService();
