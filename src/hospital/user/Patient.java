@@ -10,6 +10,7 @@ package hospital.user;
  * --年龄
  * --性别
  */
+
 public class Patient {
     private int id;
     private String name;
