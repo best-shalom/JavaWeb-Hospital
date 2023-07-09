@@ -9,5 +9,6 @@
     </SOURCES>
     <jarDirectory url="file://$PROJECT_DIR$/../Java/jdk1.8.0_92/lib" recursive="false" />
     <jarDirectory url="file://$PROJECT_DIR$/../Java/jdk1.8.0_92/lib" recursive="false" type="SOURCES" />
+
   </library>
 </component>
