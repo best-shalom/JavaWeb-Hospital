@@ -15,7 +15,7 @@
     <table>
         <%--第一行:id--%>
         <tr>
-            <td><label for="id">用户ID</label> </td>
+            <td><label for="id">姓名</label> </td>
             <td><input type="text" name="id" id="id"></td>
         </tr>
         <%--第二行:密码--%>
