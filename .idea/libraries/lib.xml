@@ -1,10 +1,13 @@
 <component name="libraryTable">
   <library name="lib">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/../../lib" />
+      <root url="file://$PROJECT_DIR$/../下载/jdk-8u371-linux-x64(1)/jdk1.8.0_371/lib" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
-    <jarDirectory url="file://$PROJECT_DIR$/../../lib" recursive="false" />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../下载/jdk-8u371-linux-x64(1)/jdk1.8.0_371/lib" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/../下载/jdk-8u371-linux-x64(1)/jdk1.8.0_371/lib" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../下载/jdk-8u371-linux-x64(1)/jdk1.8.0_371/lib" recursive="false" type="SOURCES" />
   </library>
 </component>
