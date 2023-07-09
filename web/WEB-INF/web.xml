@@ -94,6 +94,14 @@
         <servlet-name>PatientSickUpdateServlet</servlet-name>
         <url-pattern>/PatientSickUpdate</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>AdminLoginServlet</servlet-name>
+        <servlet-class>hospital.servlet.AdminLoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminLoginServlet</servlet-name>
+        <url-pattern>/AdminLogin</url-pattern>
+    </servlet-mapping>
 
     <!--设置启动页为选择页面-->
     <welcome-file-list>
