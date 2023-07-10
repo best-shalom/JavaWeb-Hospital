@@ -9,6 +9,80 @@
 <html>
 <head>
     <title>医生注册</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex; /* 使用 Flexbox 布局 */
+            justify-content: center; /* 将内容水平居中 */
+            align-items: center; /* 将内容垂直居中 */
+            height: 100vh; /* 设置 body 的高度为视窗高度 */
+            background-image: url("zhuceGP.webp"); /* 添加背景图片路径 */
+            background-size: cover; /* 调整背景图片大小以适应容器 */
+        }
+
+        form {
+            width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        tr {
+            margin-bottom: 10px;
+        }
+
+        td {
+            padding: 5px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        thead {
+            background-color: #f9f9f9; /* 设置表头背景颜色 */
+        }
+
+        th {
+            font-family: Arial, sans-serif; /* 设置字体 */
+            font-size: 16px; /* 设置字体大小 */
+            font-weight: bold; /* 设置字体粗细 */
+            color: #333; /* 设置字体颜色 */
+            padding: 10px; /* 设置内边距 */
+            text-align: center; /* 设置文字居中 */
+            border-bottom: 1px solid #ccc; /* 设置底部边框 */
+        }
+
+        input[type="text"],
+        input[type="password"],
+        textarea {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        input[type="submit"],
+        input[type="button"] {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 3px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover,
+        input[type="button"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
 <form action="DoctorRegister" method="post">
@@ -18,7 +92,7 @@
             <td><label for="name">姓名</label> </td>
             <td><input type="text" name="name" id="name"></td>
         </tr>
-        <%--第二行:密码--%>DoctorRegister
+        <!--第二行:密码-->
         <tr>
             <td><label for="password">密码</label> </td>
             <td><input type="password" name="password" id="password"></td>
@@ -30,9 +104,8 @@
         </tr>
         <%--第四行:性别--%>
         <tr>
-            <td>性别</td>
-            <td><input type="radio" name="sex" value="男" ID="man"><label for="man">男</label>
-            <input type="radio" name="sex" value="女" ID="woman"><label for="woman">女</label></td>
+            <td><input type="radio" name="sex" value="男">男</td>
+            <td><input type="radio" name="sex" value="女">女</td>
         </tr>
         <%--第五行:年龄--%>
         <tr>
@@ -48,9 +121,9 @@
 
         <%--第七行:所属医院--%>
         <tr>
-            <td>所属医院</td>
+            <td><strong>所属医院</strong></td>
             <td>
-                <select name="part">
+                <select name="part1">
                     <option value="桂林医学院附属医院">桂林医学院附属医院</option>
                     <option value="桂林中医医院">桂林中医医院</option>
                     <option value="中国人民解放军第一八一医院">中国人民解放军第一八一医院</option>
@@ -69,7 +142,7 @@
 
         <%--第八行:科室(设置六个科室可供选择)--%>
         <tr>
-            <td>所属科室</td>
+            <td><strong>所属科室</strong></td>
             <td>
                     <select name="part2">
                         <optgroup label="内科">
@@ -143,16 +216,15 @@
 
         <%--第九行:职称--%>
         <tr>
-            <td>职称 </td>
+            <td><strong>职称</strong></td>
             <td>
-            <select name="part3">
-                <option value="院长">院长</option>
-                <option value="副院长">副院长</option>
-                <option value="主任医师">主任医师</option>
-                <option value="副主任医师">副主任医师</option>
-                <option value="主治医生">主治医生</option>
-            </select>
-
+                <select name="part3">
+                    <option value="院长">院长</option>
+                    <option value="副院长">副院长</option>
+                    <option value="主任医师">主任医师</option>
+                    <option value="副主任医师">副主任医师</option>
+                    <option value="主治医生">主治医生</option>
+                </select>
             </td>
         </tr>
 
@@ -160,8 +232,7 @@
         <tr>
             <td>个人介绍</td>
             <td>
-            <textarea  name="descript" rows="5" cols="50" id = "discript"></textarea>
-
+                <textarea name="discript" rows="5" cols="50" id = "discript"></textarea>
             </td>
         </tr>
 
@@ -171,9 +242,14 @@
 <%--            <td><input type="reset" value="重置"></td>--%>
         </tr>
     </table>
+
+    <a href="DoctorLogin.jsp">
+        <tr>
+            <td colspan="2" align="center">已有账号？请登录</td>
+        </tr>
+    </a>
+
 </form>
-<a href="DoctorLogin.jsp">
-    <input type="button" value="登录">
-</a>
+
 </body>
 </html>

@@ -30,14 +30,12 @@ public class DoctorDaoImpl implements DoctorDao {
             pt.setString(7,doctor.getPart2());
             pt.setString(8,doctor.getPart3());
             pt.setString(9,doctor.getDiscript());
-            System.out.print("pt.setString(9,doctor.getDiscript());");
-
 
             //如果更新量大于零,即操作成功
             if(pt.executeUpdate()>0){
-                //返回添加成功的doctor以获取分配的id
+                //返回添加成功的doctor以获取分配的id-
                 String s="select * from doctor where DoctorName=? and D_Password=? and sex=?  and age=? and phone=? and hospital=? and DepartmentName=? and ProfessionalTitle=? and introduction=?";
-                PreparedStatement p=connection.prepareStatement(s);
+                PreparedStatement p = connection.prepareStatement(s);
                 p.setString(1, doctor.getName());
                 p.setString(2, doctor.getPassword());
                 p.setString(3, doctor.getSex());
@@ -50,7 +48,7 @@ public class DoctorDaoImpl implements DoctorDao {
 
                 ResultSet rs=p.executeQuery();
                 if(rs.next()){
-                    doctor.setId(rs.getInt("id"));
+                    doctor.setId(rs.getInt("DoctorID"));
                     return doctor;
                 }
             }
