@@ -103,7 +103,7 @@
                             <option value="妇幼保健">妇幼保健</option>
                         </optgroup>
 
-                        <option value="男科">男科</option>
+                        <optgroup label="男科"></optgroup>
 
                         <optgroup label="儿科">
                             <option value="儿科综合">儿科综合</option>
@@ -134,7 +134,7 @@
                             <option value="性病科">性病科</option>
                         </optgroup>
 
-                        <option value="中医科">中医科</option>
+                        <optgroup label="中医科"></optgroup>
 
                     </select>
             </td>
@@ -143,19 +143,23 @@
         <%--第九行:职称--%>
         <tr>
             <td>职称 </td>
-            <select name="part3">
-                <option value="院长">院长</option>
-                <option value="副院长">副院长</option>
-                <option value="主任医师">主任医师</option>
-                <option value="副主任医师">副主任医师</option>
-                <option value="主治医生">主治医生</option>
-            </select>
+            <td>
+                <select name="part3">
+                    <option value="院长">院长</option>
+                    <option value="副院长">副院长</option>
+                    <option value="主任医师">主任医师</option>
+                    <option value="副主任医师">副主任医师</option>
+                    <option value="主治医生">主治医生</option>
+                </select>
+            </td>
         </tr>
 
-        <%--第十行:职称--%>
+        <%--第十行:个人介绍--%>
         <tr>
             <td>个人介绍</td>
-            <textarea  name="descript" rows="5" cols="50"></textarea>
+            <td>
+                <textarea  name="descript" rows="5" cols="50"></textarea>
+            </td>
         </tr>
 
         <%--第十一行:注册+重置按钮--%>
