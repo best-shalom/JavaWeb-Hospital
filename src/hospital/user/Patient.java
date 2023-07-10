@@ -12,7 +12,7 @@ package hospital.user;
  */
 
 public class Patient {
-    private int id;
+    private int UserID;
     private String name;
     private String password;
     private int age;
@@ -24,12 +24,12 @@ public class Patient {
     private  String Email;
 
 
-    public int getId() {
-        return id;
+    public int getUserID() {
+        return UserID;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setUserID(int UserID) {
+        this.UserID = UserID;
     }
 
     public String getName() {

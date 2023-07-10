@@ -93,11 +93,11 @@ public class AdminDaoImpl implements AdminDao {
                 admin.setCreate_time(rs.getString("create_time"));
                 return admin;
             }
-            //System.out.println("find no");
+            System.out.println("find no");
             return null;
         } catch (Exception e) {
             e.printStackTrace();
-            //System.out.println("FIND NO");
+            System.out.println("FIND NO");
             return null;
         }
     }

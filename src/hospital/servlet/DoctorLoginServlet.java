@@ -18,6 +18,7 @@ public class DoctorLoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id= Integer.parseInt(req.getParameter("id"));
+        int name= Integer.parseInt(req.getParameter("name"));
         String password=req.getParameter("password");
         boolean flag=doctorService.DoctorLogin(id,password);
         if(flag){
