@@ -18,7 +18,7 @@
             <td><label for="name">姓名</label> </td>
             <td><input type="text" name="name" id="name"></td>
         </tr>
-        <%--第二行:密码--%>
+        <%--第二行:密码--%>DoctorRegister
         <tr>
             <td><label for="password">密码</label> </td>
             <td><input type="password" name="password" id="password"></td>
@@ -30,8 +30,9 @@
         </tr>
         <%--第四行:性别--%>
         <tr>
-            <td><input type="radio" name="sex" value="男">男</td>
-            <td><input type="radio" name="sex" value="女">女</td>
+            <td>性别</td>
+            <td><input type="radio" name="sex" value="男" ID="man"><label for="man">男</label>
+            <input type="radio" name="sex" value="女" ID="woman"><label for="woman">女</label></td>
         </tr>
         <%--第五行:年龄--%>
         <tr>
@@ -49,7 +50,7 @@
         <tr>
             <td>所属医院</td>
             <td>
-                <select name="part1">
+                <select name="part">
                     <option value="桂林医学院附属医院">桂林医学院附属医院</option>
                     <option value="桂林中医医院">桂林中医医院</option>
                     <option value="中国人民解放军第一八一医院">中国人民解放军第一八一医院</option>
@@ -70,7 +71,7 @@
         <tr>
             <td>所属科室</td>
             <td>
-                    <select name="part">
+                    <select name="part2">
                         <optgroup label="内科">
                             <option value="呼吸内科">呼吸内科</option>
                             <option value="消化内科">消化内科</option>
@@ -103,7 +104,7 @@
                             <option value="妇幼保健">妇幼保健</option>
                         </optgroup>
 
-                        <option value="男科">男科</option>
+                        <optgroup label="男科"></optgroup>
 
                         <optgroup label="儿科">
                             <option value="儿科综合">儿科综合</option>
@@ -134,7 +135,7 @@
                             <option value="性病科">性病科</option>
                         </optgroup>
 
-                        <option value="中医科">中医科</option>
+                        <optgroup label="中医科"></optgroup>
 
                     </select>
             </td>
@@ -143,6 +144,7 @@
         <%--第九行:职称--%>
         <tr>
             <td>职称 </td>
+            <td>
             <select name="part3">
                 <option value="院长">院长</option>
                 <option value="副院长">副院长</option>
@@ -150,12 +152,17 @@
                 <option value="副主任医师">副主任医师</option>
                 <option value="主治医生">主治医生</option>
             </select>
+
+            </td>
         </tr>
 
-        <%--第十行:职称--%>
+        <%--第十行:个人介绍--%>
         <tr>
             <td>个人介绍</td>
-            <textarea  name="descript" rows="5" cols="50"></textarea>
+            <td>
+            <textarea  name="descript" rows="5" cols="50" id = "discript"></textarea>
+
+            </td>
         </tr>
 
         <%--第十一行:注册+重置按钮--%>

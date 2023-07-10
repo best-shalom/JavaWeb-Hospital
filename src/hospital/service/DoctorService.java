@@ -34,13 +34,18 @@ public class DoctorService {
         return true;
     }
 
-    public Doctor DoctorRegister(String name,String password,int age,String sex,String part){
+    public Doctor DoctorRegister(String name,String password,String sex,int age,
+                                 String phone, String part, String part2, String part3, String discript){
         Doctor doctor=new Doctor();
         doctor.setName(name);
         doctor.setPassword(password);
-        doctor.setAge(age);
         doctor.setSex(sex);
+        doctor.setAge(age);
+        doctor.setPhone(phone);
         doctor.setPart(part);
+        doctor.setPart2(part2);
+        doctor.setPart3(part3);
+        doctor.setDiscript(discript);
         return doctorDao.add(doctor);
     }
 
