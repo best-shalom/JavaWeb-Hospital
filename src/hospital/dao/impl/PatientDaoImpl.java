@@ -42,7 +42,7 @@ public class PatientDaoImpl implements PatientDao {
                 p.setString(8,patient.getDateOfBirth());
                 ResultSet rs=p.executeQuery();
                 if(rs.next()){
-                    patient.setId(rs.getInt("UserID"));
+                    patient.setUserID(rs.getInt("UserID"));
                     return patient;
                 }
             }
@@ -80,7 +80,7 @@ public class PatientDaoImpl implements PatientDao {
             pt.setString(2,patient.getPassword());
             pt.setInt(3,patient.getAge());
             pt.setString(4,patient.getSex());
-            pt.setInt(5,patient.getId());
+            pt.setInt(5,patient.getUserID());
             if(pt.executeUpdate()>0){
                 return true;
             }
@@ -92,20 +92,24 @@ public class PatientDaoImpl implements PatientDao {
     }
 
     @Override
-    public Patient find(int id) {
+    public Patient find(String PhoneNumber) {
         try{
             Connection connection=DbConnection.getConnection();
-            String sql="select * from patient where id=?";
+            String sql="select * from patients where PhoneNumber=?";
             PreparedStatement pt=connection.prepareStatement(sql);
-            pt.setInt(1,id);
+            pt.setString(1,PhoneNumber);
             ResultSet rs=pt.executeQuery();
             Patient patient=new Patient();
             if(rs.next()){
-                patient.setId(rs.getInt("id"));
-                patient.setName(rs.getString("name"));
-                patient.setPassword(rs.getString("password"));
-                patient.setAge(rs.getInt("age"));
-                patient.setSex(rs.getString("sex"));
+                patient.setUserID(rs.getInt("UserId"));
+                patient.setName(rs.getString("Name"));
+                patient.setPassword(rs.getString("Password"));
+                patient.setSex(rs.getString("Sex"));
+                patient.setAge(rs.getInt("Age"));
+                patient.setIdCard(rs.getString("IDCard"));
+                patient.setPhoneNumber(rs.getString("PhoneNumber"));
+                patient.setEmail(rs.getString("email"));
+                patient.setDateOfBirth(rs.getString("DateOfBirth"));
                 return patient;
             }
             return null;
