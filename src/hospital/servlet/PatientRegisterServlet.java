@@ -29,7 +29,7 @@ public class PatientRegisterServlet extends HttpServlet {
         String PhoneNumber= req.getParameter("PhoneNumber");
 
         Patient patient=patientService.PatientRegister(name,password,age,sex,email,idCard,DateOfBirth,PhoneNumber);
-        int id=patient.getId();
+        int id=patient.getUserID();
 
         if(!Objects.equals(password, SurePassword)){
 
