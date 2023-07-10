@@ -18,7 +18,7 @@
             <td><label for="name">姓名</label> </td>
             <td><input type="text" name="name" id="name"></td>
         </tr>
-        <%--第二行:密码--%>
+        <%--第二行:密码--%>DoctorRegister
         <tr>
             <td><label for="password">密码</label> </td>
             <td><input type="password" name="password" id="password"></td>
@@ -104,7 +104,7 @@
                             <option value="妇幼保健">妇幼保健</option>
                         </optgroup>
 
-                        <option value="男科">男科</option>
+                        <optgroup label="男科"></optgroup>
 
                         <optgroup label="儿科">
                             <option value="儿科综合">儿科综合</option>
@@ -135,7 +135,7 @@
                             <option value="性病科">性病科</option>
                         </optgroup>
 
-                        <option value="中医科">中医科</option>
+                        <optgroup label="中医科"></optgroup>
 
                     </select>
             </td>
@@ -152,14 +152,16 @@
                 <option value="副主任医师">副主任医师</option>
                 <option value="主治医生">主治医生</option>
             </select>
+
             </td>
         </tr>
 
-        <%--第十行:职称--%>
+        <%--第十行:个人介绍--%>
         <tr>
             <td>个人介绍</td>
             <td>
             <textarea  name="descript" rows="5" cols="50" id = "discript"></textarea>
+
             </td>
         </tr>
 
