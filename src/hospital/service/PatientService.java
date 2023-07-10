@@ -24,12 +24,14 @@ public class PatientService {
     PatientDaoImpl patientDao=new PatientDaoImpl();
     SickDaoImpl sickDao=new SickDaoImpl();
 
-    public boolean PatientLogin(int id,String password){
-        Patient patient=patientDao.find(id);
+    public boolean PatientLogin(String PhoneNumber,String password){
+        Patient patient=patientDao.find(PhoneNumber);
         if(patient==null){
+            System.out.println("Patient not found");
             return false;
         }
         if(!Objects.equals(patient.getPassword(), password)){
+            System.out.println("Password error" + password);
             return false;
         }
         return true;
@@ -49,18 +51,12 @@ public class PatientService {
         return patientDao.add(patient);
     }
 
-    /**
-     * 显示自身信息
-     * @param id 这里的id可以直接由登录界面的id传入
-     *           注册界面则由传入的patient.getId()获取
-     * @return 返回病人信息
-     */
-    public Patient PatientShow(int id){
-        return patientDao.find(id);
+    public Patient PatientShow(String PhoneNumber){
+        return patientDao.find(PhoneNumber);
     }
 
-    public boolean PatientUpdate(int id,String name,String password,int age,String sex){
-        Patient patient=patientDao.find(id);
+    public boolean PatientUpdate(String PhoneNumber,String name,String password,int age,String sex){
+        Patient patient=patientDao.find(PhoneNumber);
         if(patient==null){
             return false;
         }

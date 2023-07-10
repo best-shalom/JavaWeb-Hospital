@@ -102,14 +102,6 @@
         <servlet-name>AdminLoginServlet</servlet-name>
         <url-pattern>/AdminLogin</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>PatientRemoveServlet</servlet-name>
-        <servlet-class>hospital.servlet.PatientRemoveServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>PatientRemoveServlet</servlet-name>
-        <url-pattern>/PatientRemove</url-pattern>
-    </servlet-mapping>
 
     <!--设置启动页为选择页面-->
     <welcome-file-list>

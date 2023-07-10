@@ -27,7 +27,7 @@ public class ChooseServlet extends HttpServlet {
         }
         else if(Objects.equals(choose, "root")){
             resp.getWriter().write("转向管理员登陆");
-            resp.sendRedirect("AdminLogin.jsp");
+            resp.sendRedirect("RootLogin.jsp");
         } else{
             resp.getWriter().write("未知错误");
             resp.sendRedirect("Error.jsp");

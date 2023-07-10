@@ -20,10 +20,10 @@ public class AdminLoginServlet extends HttpServlet {
         if (flag) {
             resp.getWriter().write("登录成功!");
             req.setAttribute("A_Name", A_Name);
-            req.getRequestDispatcher("./AdminCenter.jsp").forward(req, resp);
+            req.getRequestDispatcher("Choose.jsp").forward(req, resp);
         } else {
             resp.getWriter().write("登录失败!");
-            resp.sendRedirect("./Error.jsp");
+            resp.sendRedirect("Error.jsp");
         }
     }
 }
