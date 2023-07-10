@@ -20,6 +20,9 @@
         }
     </style>
     <script>
+        function showMessage(message) {
+            alert(message);
+        }
         function validatePassword() {
             var password = document.getElementById("password").value;
             var SurePassword = document.getElementById("SurePassword").value;
@@ -101,5 +104,11 @@
 <a href="PatientLogin.jsp">
     <input type="button" value="登录">
 </a>
+<% if (request.getAttribute("Errormessage") != null) { %>
+<script>
+    showMessage("<%= request.getAttribute("Errormessage") %>");
+</script>
+<% } %>
+
 </body>
 </html>
