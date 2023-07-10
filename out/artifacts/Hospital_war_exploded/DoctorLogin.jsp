@@ -15,23 +15,23 @@
     <table>
         <%--第一行:id--%>
         <tr>
-            <td><label for="id">手机号</label></td>
+            <td><label for="id">用户ID</label> </td>
             <td><input type="text" name="id" id="id"></td>
         </tr>
         <%--第二行:密码--%>
         <tr>
-            <td><label for="password">密码</label></td>
+            <td><label for="password">密码</label> </td>
             <td><input type="password" name="password" id="password"></td>
         </tr>
         <%--第三行:登录+重置按钮--%>
         <tr>
             <td><input type="submit" value="登录"></td>
-<%--            <td><input type="reset" value="重置"></td>--%>
+            <td><input type="reset" value="重置"></td>
         </tr>
     </table>
 </form>
-<%--<a href="DoctorRegister.jsp">--%>
-<%--    <input type="button" value="注册">--%>
-<%--</a>--%>
+<a href="DoctorRegister.jsp">
+    <input type="button" value="注册">
+</a>
 </body>
 </html>

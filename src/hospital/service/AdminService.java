@@ -12,7 +12,7 @@ public class AdminService {
     public boolean AdminLogin(String A_Name,String A_password){
         Admin admin=adminDao.find(A_Name);
         if(admin==null){
-            System.out.println("NO");
+            //System.out.println("NO");
             return false;
         }
         if(!Objects.equals(admin.getA_password(), A_password)){
