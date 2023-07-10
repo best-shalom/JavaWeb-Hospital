@@ -1,7 +1,7 @@
 package hospital.dao;
 
-
 import hospital.user.Patient;
+import java.util.List;
 
 /**
  * @author Administrator
@@ -38,5 +38,6 @@ public interface PatientDao {
      * @param id 病人id
      * @return 返回病人数据(不存在则为null)
      */
-    public Patient find(String PhoneNumber);
+    public Patient find(int id);
+    List<Patient> findAll();
 }

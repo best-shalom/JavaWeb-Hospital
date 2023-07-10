@@ -4,6 +4,9 @@ import hospital.dao.PatientDao;
 import hospital.dbc.DbConnection;
 import hospital.user.Patient;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -42,7 +45,7 @@ public class PatientDaoImpl implements PatientDao {
                 p.setString(8,patient.getDateOfBirth());
                 ResultSet rs=p.executeQuery();
                 if(rs.next()){
-                    patient.setUserID(rs.getInt("UserID"));
+                    patient.setId(rs.getInt("UserID"));
                     return patient;
                 }
             }
@@ -57,7 +60,7 @@ public class PatientDaoImpl implements PatientDao {
     public boolean delete(int id) {
         try {
             Connection connection=DbConnection.getConnection();
-            String sql="delete from patient where id=?";
+            String sql="delete from patient where UserID=?";
             PreparedStatement pt=connection.prepareStatement(sql);
             pt.setInt(1,id);
             if(pt.executeUpdate()>0){
@@ -80,7 +83,7 @@ public class PatientDaoImpl implements PatientDao {
             pt.setString(2,patient.getPassword());
             pt.setInt(3,patient.getAge());
             pt.setString(4,patient.getSex());
-            pt.setInt(5,patient.getUserID());
+            pt.setInt(5,patient.getId());
             if(pt.executeUpdate()>0){
                 return true;
             }
@@ -92,28 +95,57 @@ public class PatientDaoImpl implements PatientDao {
     }
 
     @Override
-    public Patient find(String PhoneNumber) {
+    public Patient find(int id) {
         try{
             Connection connection=DbConnection.getConnection();
-            String sql="select * from patients where PhoneNumber=?";
+            String sql="select * from patient where id=?";
             PreparedStatement pt=connection.prepareStatement(sql);
-            pt.setString(1,PhoneNumber);
+            pt.setInt(1,id);
             ResultSet rs=pt.executeQuery();
             Patient patient=new Patient();
             if(rs.next()){
-                patient.setUserID(rs.getInt("UserId"));
-                patient.setName(rs.getString("Name"));
-                patient.setPassword(rs.getString("Password"));
-                patient.setSex(rs.getString("Sex"));
-                patient.setAge(rs.getInt("Age"));
-                patient.setIdCard(rs.getString("IDCard"));
-                patient.setPhoneNumber(rs.getString("PhoneNumber"));
-                patient.setEmail(rs.getString("email"));
-                patient.setDateOfBirth(rs.getString("DateOfBirth"));
+                patient.setId(rs.getInt("id"));
+                patient.setName(rs.getString("name"));
+                patient.setPassword(rs.getString("password"));
+                patient.setAge(rs.getInt("age"));
+                patient.setSex(rs.getString("sex"));
                 return patient;
             }
             return null;
         }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+    public List<Patient> findAll() {
+        try {
+            Connection connection = DbConnection.getConnection();
+            String sql = "select * from patients";
+            PreparedStatement pt = connection.prepareStatement(sql);
+            ResultSet rs = pt.executeQuery();
+
+            List<Patient> patientList = new ArrayList<>();
+
+            while (rs.next()) {
+                Patient patient = new Patient();
+                patient.setId(rs.getInt(1));
+                patient.setName(rs.getString(2));
+                patient.setPassword(rs.getString(3));
+                patient.setSex(rs.getString(4));
+                patient.setAge(rs.getInt(5));
+                patient.setIdCard(rs.getString(6));
+                patient.setPhoneNumber(rs.getString(7));
+                patient.setEmail(rs.getString(8));
+                patient.setDateOfBirth(rs.getString(9));
+
+                patientList.add(patient);
+            }
+            if (patientList == null) {
+                System.out.println("no");
+            }
+            return patientList;
+        } catch (Exception e) {
+            System.out.println("NO");
             e.printStackTrace();
             return null;
         }

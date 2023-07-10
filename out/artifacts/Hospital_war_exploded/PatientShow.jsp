@@ -17,40 +17,32 @@
         <th>ID</th>
         <th>姓名</th>
         <th>密码</th>
-        <th>性别</th>
         <th>年龄</th>
-        <th>身份证</th>
-        <th>电话号码</th>
-        <th>邮箱</th>
-        <th>生日</th>
+        <th>性别</th>
     </tr>
     <%
         PatientService patientService=new PatientService();
         /*获取从登录页面和注册页面传入的id
         * 或者从UpdateServlet传入的id
         */
-         String PhoneNumber= (String)request.getAttribute("PhoneNumber");
-        Patient patient=patientService.PatientShow(PhoneNumber);
+        int id= (int) request.getAttribute("id");
+        Patient patient=patientService.PatientShow(id);
         if(patient!=null)
         {%>
     <tr>
-        <td><%=patient.getUserID() %></td>
-        <td><%=patient.getName() %></td>
+        <td><%=patient.getId() %></td>
+        <td><%=patient.getName() %>></td>
         <td><%=patient.getPassword() %></td>
-        <td><%=patient.getSex() %></td>
-        <td><%=patient.getAge()%></td>
-        <td><%=patient.getIdCard() %></td>
-        <td><%=patient.getPhoneNumber() %></td>
-        <td><%=patient.getEmail() %></td>
-        <td><%=patient.getDateOfBirth() %></td>
+        <td><%=patient.getAge() %></td>
+        <td><%=patient.getSex()%></td>
     </tr>
     <%}
     %>
 </table>
-<a href="PatientUpdate.jsp?PhoneNumber=<%=PhoneNumber%>">
+<a href="PatientUpdate.jsp?id=<%=id%>">
     <input type="button" value="修改个人信息">
 </a>
-<a href="PatientSickShow.jsp?PhoneNumber=<%=PhoneNumber%>">
+<a href="PatientSickShow.jsp?id=<%=id%>">
     <input type="button" value="挂号信息">
 </a>
 </body>

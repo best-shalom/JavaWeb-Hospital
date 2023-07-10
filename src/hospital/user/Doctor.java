@@ -15,43 +15,8 @@ public class Doctor {
     private String name;
     private String password;
     private int age;
-    private String phone;
     private String sex;
-    private String part; //医院
-    private String part2; //科室
-    private String part3;// 职称
-    private String discript;
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getPart2() {
-        return part2;
-    }
-
-    public void setPart2(String part2) {
-        this.part2 = part2;
-    }
-
-    public String getPart3() {
-        return part3;
-    }
-
-    public void setPart3(String part3) {
-        this.part3 = part3;
-    }
-    public String getDiscript() {
-        return discript;
-    }
-
-    public void setDiscript(String discript) {
-        this.discript = discript;
-    }
+    private String part;
 
     public int getId() {
         return id;
