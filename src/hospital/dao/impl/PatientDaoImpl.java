@@ -60,7 +60,7 @@ public class PatientDaoImpl implements PatientDao {
     public boolean delete(int id) {
         try {
             Connection connection=DbConnection.getConnection();
-            String sql="delete from patient where UserID=?";
+            String sql="delete from patients where UserID=?";
             PreparedStatement pt=connection.prepareStatement(sql);
             pt.setInt(1,id);
             if(pt.executeUpdate()>0){
