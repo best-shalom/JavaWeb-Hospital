@@ -17,38 +17,28 @@ public class DoctorDaoImpl implements DoctorDao {
     public Doctor add(Doctor doctor) {
         try{
             Connection connection= DbConnection.getConnection();
-            String sql="insert into doctor(DoctorName,D_Password,sex,age,phone,hospital,DepartmentName,ProfessionalTitle,introduction) values(?,?,?,?,?,?,?,?,?)";
+            String sql="insert into doctor(name,password,age,sex,part) values(?,?,?,?,?)";
             //sql语句预处理
             PreparedStatement pt=connection.prepareStatement(sql);
             //将数据放入问号处
             pt.setString(1,doctor.getName());
             pt.setString(2,doctor.getPassword());
-            pt.setString(3,doctor.getSex());
-            pt.setInt(4,doctor.getAge());
-            pt.setString(5,doctor.getPhone());
-            pt.setString(6,doctor.getPart());
-            pt.setString(7,doctor.getPart2());
-            pt.setString(8,doctor.getPart3());
-            pt.setString(9,doctor.getDiscript());
-
+            pt.setInt(3,doctor.getAge());
+            pt.setString(4,doctor.getSex());
+            pt.setString(5,doctor.getPart());
             //如果更新量大于零,即操作成功
             if(pt.executeUpdate()>0){
-                //返回添加成功的doctor以获取分配的id-
-                String s="select * from doctor where DoctorName=? and D_Password=? and sex=?  and age=? and phone=? and hospital=? and DepartmentName=? and ProfessionalTitle=? and introduction=?";
-                PreparedStatement p = connection.prepareStatement(s);
-                p.setString(1, doctor.getName());
-                p.setString(2, doctor.getPassword());
-                p.setString(3, doctor.getSex());
-                p.setInt(4, doctor.getAge());
-                p.setString(5, doctor.getPhone());
-                p.setString(6, doctor.getPart());
-                p.setString(7, doctor.getPart2());
-                p.setString(8, doctor.getPart3());
-                p.setString(9, doctor.getDiscript());
-
+                //返回添加成功的doctor以获取分配的id
+                String s="select * from doctor where name=? and password=? and age=? and sex=? and part=?";
+                PreparedStatement p=connection.prepareStatement(s);
+                p.setString(1,doctor.getName());
+                p.setString(2,doctor.getPassword());
+                p.setInt(3,doctor.getAge());
+                p.setString(4,doctor.getSex());
+                p.setString(5,doctor.getPart());
                 ResultSet rs=p.executeQuery();
                 if(rs.next()){
-                    doctor.setId(rs.getInt("DoctorID"));
+                    doctor.setId(rs.getInt("id"));
                     return doctor;
                 }
             }
