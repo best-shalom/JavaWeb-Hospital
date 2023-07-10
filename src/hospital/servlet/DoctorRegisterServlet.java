@@ -20,10 +20,15 @@ public class DoctorRegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String name=req.getParameter("name");
         String password=req.getParameter("password");
-        int age= Integer.parseInt(req.getParameter("age"));
         String sex=req.getParameter("sex");
+        int age= Integer.parseInt(req.getParameter("age"));
+        String phone=req.getParameter("phone");
         String part=req.getParameter("part");
-        Doctor doctor=doctorService.DoctorRegister(name,password,age,sex,part);
+        String part2=req.getParameter("part2");
+        String part3=req.getParameter("part3");
+        String discript=req.getParameter("discript");
+
+        Doctor doctor=doctorService.DoctorRegister(name,password,sex,age,phone,part,part2,part3,discript);
         int id=doctor.getId();
         if(id!=0){
             resp.getWriter().write("注册成功!");
