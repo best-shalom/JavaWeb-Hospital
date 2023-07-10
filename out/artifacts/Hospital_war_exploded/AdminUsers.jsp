@@ -109,9 +109,9 @@
         <td><%= patient.getDateOfBirth() %></td>
         <td>
           <label>
-            <input type="hidden" name="Id" value="<%=patient.getId()%>">
+            <input type="hidden" name="Id" value="<%=patient.getUserID()%>">
           </label>
-          <button class="button" type="submit" onclick="DeletePatient(<%=patient.getId()%>); return false;">删除用户</button>
+          <button class="button" type="submit" onclick="DeletePatient(<%=patient.getUserID()%>); return false;">删除用户</button>
         </td>
       </tr>
       <% } %>

@@ -3,6 +3,8 @@ package hospital.dao;
 
 import hospital.user.Patient;
 
+import java.util.List;
+
 /**
  * @author Administrator
  * 对病人登录数据表的增删改查
@@ -39,4 +41,5 @@ public interface PatientDao {
      * @return 返回病人数据(不存在则为null)
      */
     public Patient find(String PhoneNumber);
+    public List<Patient> findAll();
 }
