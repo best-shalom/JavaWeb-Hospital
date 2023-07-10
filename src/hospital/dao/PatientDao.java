@@ -38,5 +38,5 @@ public interface PatientDao {
      * @param id 病人id
      * @return 返回病人数据(不存在则为null)
      */
-    public Patient find(int id);
+    public Patient find(String PhoneNumber);
 }
