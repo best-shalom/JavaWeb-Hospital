@@ -5,6 +5,7 @@
       <map>
         <entry key="file://$PROJECT_DIR$/web/Choose.jsp" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/DoctorSickUpdate.jsp" value="file://$PROJECT_DIR$/web" />
+        <entry key="file://$PROJECT_DIR$/web/generateCaptcha.jsp" value="file://$PROJECT_DIR$/web" />
       </map>
     </option>
   </component>
