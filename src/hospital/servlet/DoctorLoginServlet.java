@@ -17,14 +17,14 @@ public class DoctorLoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int id= Integer.parseInt(req.getParameter("id"));
-        int name= Integer.parseInt(req.getParameter("name"));
-        String password=req.getParameter("password");
-        boolean flag=doctorService.DoctorLogin(id,password);
+        String phone = req.getParameter("phone");
+        String password = req.getParameter("password");
+        boolean flag=doctorService.DoctorLogin(phone,password);
         if(flag){
             resp.getWriter().write("登录成功!");
+
             /*转发到医生个人主页*/
-            req.setAttribute("id",id);
+            req.setAttribute("phone",phone);
             req.getRequestDispatcher("DoctorShow.jsp").forward(req,resp);
         }
         else{
