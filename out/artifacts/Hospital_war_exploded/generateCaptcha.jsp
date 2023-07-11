@@ -1,17 +1,14 @@
-<%@page import="java.awt.image.BufferedImage"%>
-<%@page import="java.awt.Graphics2D"%>
-<%@page import="java.awt.Color"%>
-<%@page import="java.awt.Font"%>
 <%@page import="javax.imageio.ImageIO"%>
-<%@page import="java.util.Random"%>
+<%@page import="java.io.ByteArrayOutputStream"%>
+<%@ page import="java.util.Random" %>
+<%@ page import="java.awt.image.BufferedImage" %>
+<%@ page import="java.awt.*" %>
 
 <%
   int width = 60;
   int height = 20;
-// 创建具有可访问图像数据缓冲区的Image
-  BufferedImage buffImg = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+  BufferedImage buffImg = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
   Graphics2D g = buffImg.createGraphics();
-
 // 创建一个随机数生成器
   Random random = new Random();
 
@@ -66,7 +63,11 @@
   response.setHeader("Cache-Control", "no-cache");
   response.setDateHeader("Expires", 0);
 
-  response.setContentType("image/jpeg");
-// 将图像输出到servlet输出流中
-  ImageIO.write(buffImg, "jpeg", response.getOutputStream());
+  ByteArrayOutputStream baos = new ByteArrayOutputStream();
+  ImageIO.write(buffImg, "png", baos);
+  byte[] imageData = baos.toByteArray();
+
+  response.setContentType("image/png");
+  response.setContentLength(imageData.length);
+  response.getOutputStream().write(imageData);
 %>
