@@ -19,7 +19,7 @@
   g.fillRect(0, 0, width, height);
 
 // 创建字体，字体的大小应该根据图片的高度来定
-  Font font = new Font("Times New Roman", Font.PLAIN, 18);
+  Font font = new Font("Arial", Font.PLAIN, 18);
 // 设置字体
   g.setFont(font);
 

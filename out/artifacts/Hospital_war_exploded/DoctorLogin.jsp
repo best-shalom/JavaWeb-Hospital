@@ -15,8 +15,8 @@
     <table>
         <%--第一行:id--%>
         <tr>
-            <td><label for="id">用户ID</label> </td>
-            <td><input type="text" name="id" id="id"></td>
+            <td><label for="phone">手机号</label> </td>
+            <td><input type="text" name="phone" id="phone"></td>
         </tr>
         <%--第二行:密码--%>
         <tr>
@@ -26,12 +26,14 @@
         <%--第三行:登录+重置按钮--%>
         <tr>
             <td><input type="submit" value="登录"></td>
-            <td><input type="reset" value="重置"></td>
+<%--            <td><input type="reset" value="重置"></td>--%>
         </tr>
     </table>
+
+    <a href="DoctorRegister.jsp">
+        <input type="button" value="注册">
+    </a>
+
 </form>
-<a href="DoctorRegister.jsp">
-    <input type="button" value="注册">
-</a>
 </body>
 </html>

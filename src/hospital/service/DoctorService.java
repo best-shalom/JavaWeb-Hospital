@@ -23,8 +23,8 @@ public class DoctorService {
     DoctorDaoImpl doctorDao=new DoctorDaoImpl();
     SickDaoImpl sickDao=new SickDaoImpl();
 
-    public boolean DoctorLogin(int id,String password){
-        Doctor doctor=doctorDao.find(id);
+    public boolean DoctorLogin(String phone,String password){
+        Doctor doctor=doctorDao.find(phone);
         if(doctor==null){
             return false;
         }
@@ -51,16 +51,16 @@ public class DoctorService {
 
     /**
      * 显示自身信息
-     * @param id 这里的id可以直接由登录界面的id传入
+     * @param phone 这里的phone可以直接由登录界面的phone传入
      *           注册界面则由传入的doctor.getId()获取
      * @return 返回医生信息
      */
-    public Doctor DoctorShow(int id){
-        return doctorDao.find(id);
+    public Doctor DoctorShow(String phone){
+        return doctorDao.find(phone);
     }
 
-    public boolean DoctorUpdate(int id,String name,String password,int age,String sex,String part){
-        Doctor doctor=doctorDao.find(id);
+    public boolean DoctorUpdate(String phone,String name,String password,int age,String sex,String part){
+        Doctor doctor=doctorDao.find(phone);
         if(doctor==null){
             return false;
         }

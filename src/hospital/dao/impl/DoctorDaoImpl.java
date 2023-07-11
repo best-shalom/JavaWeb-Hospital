@@ -17,7 +17,7 @@ public class DoctorDaoImpl implements DoctorDao {
     public Doctor add(Doctor doctor) {
         try{
             Connection connection= DbConnection.getConnection();
-            String sql="insert into doctor(DoctorName,D_Password,sex,age,phone,hospital,DepartmentName,ProfessionalTitle,introduction) values(?,?,?,?,?,?,?,?,?)";
+            String sql="insert into doctor(DoctorName,D_Password,sex,age,phone,hospitalname,departmentname,ProfessionalTitle,introduction) values(?,?,?,?,?,?,?,?,?)";
             //sql语句预处理
             PreparedStatement pt=connection.prepareStatement(sql);
             //将数据放入问号处
@@ -34,7 +34,7 @@ public class DoctorDaoImpl implements DoctorDao {
             //如果更新量大于零,即操作成功
             if(pt.executeUpdate()>0){
                 //返回添加成功的doctor以获取分配的id-
-                String s="select * from doctor where DoctorName=? and D_Password=? and sex=?  and age=? and phone=? and hospital=? and DepartmentName=? and ProfessionalTitle=? and introduction=?";
+                String s="select * from doctor where DoctorName=? and D_Password=? and sex=?  and age=? and phone=? and hospitalname=? and departmentname=? and ProfessionalTitle=? and introduction=?";
                 PreparedStatement p = connection.prepareStatement(s);
                 p.setString(1, doctor.getName());
                 p.setString(2, doctor.getPassword());
@@ -63,7 +63,7 @@ public class DoctorDaoImpl implements DoctorDao {
     public boolean delete(int id) {
         try {
             Connection connection=DbConnection.getConnection();
-            String sql="delete from doctor where id=?";
+            String sql="delete from doctor where DoctorID=?";
             PreparedStatement pt=connection.prepareStatement(sql);
             pt.setInt(1,id);
             if(pt.executeUpdate()>0){
@@ -80,14 +80,14 @@ public class DoctorDaoImpl implements DoctorDao {
     public boolean update(Doctor doctor) {
         try{
             Connection connection=DbConnection.getConnection();
-            String sql="update doctor set name=?,password=?,age=?,sex=?,part=? where id=?";
+            String sql="update doctor set age=?,sex=? where DoctorID=?";
             PreparedStatement pt=connection.prepareStatement(sql);
             pt.setString(1,doctor.getName());
             pt.setString(2,doctor.getPassword());
             pt.setInt(3,doctor.getAge());
-            pt.setString(4,doctor.getSex());
-            pt.setString(5,doctor.getPart());
-            pt.setInt(6,doctor.getId());
+//            pt.setString(4,doctor.getSex());
+//            pt.setString(5,doctor.getPart());
+//            pt.setInt(6,doctor.getId());
             if(pt.executeUpdate()>0){
                 return true;
             }
@@ -99,21 +99,25 @@ public class DoctorDaoImpl implements DoctorDao {
     }
 
     @Override
-    public Doctor find(int id) {
+    public Doctor find(String phone) {
         try{
             Connection connection=DbConnection.getConnection();
-            String sql="select * from doctor where id=?";
+            String sql="select * from doctor where phone=?";
             PreparedStatement pt=connection.prepareStatement(sql);
-            pt.setInt(1,id);
+            pt.setString(1,phone);
             ResultSet rs=pt.executeQuery();
             Doctor doctor=new Doctor();
             if(rs.next()){
-                doctor.setId(rs.getInt("id"));
-                doctor.setName(rs.getString("name"));
-                doctor.setPassword(rs.getString("password"));
-                doctor.setAge(rs.getInt("age"));
+                doctor.setId(rs.getInt("DoctorID"));
+                doctor.setName(rs.getString("DoctorName"));
+                doctor.setPassword(rs.getString("D_Password"));
                 doctor.setSex(rs.getString("sex"));
-                doctor.setPart(rs.getString("part"));
+                doctor.setAge(rs.getInt("age"));
+                doctor.setPhone(rs.getString("phone"));
+                doctor.setPart(rs.getString("hospitalname"));
+                doctor.setPart2(rs.getString("departmentname"));
+                doctor.setPart3(rs.getString("ProfessionalTitle"));
+                doctor.setDiscript(rs.getString("introduction"));
                 return doctor;
             }
             return null;
