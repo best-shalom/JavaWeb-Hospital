@@ -49,6 +49,7 @@
             <td><label for="name">姓名</label> </td>
             <td><input type="text" name="name" id="name"></td>
         </tr>
+
         <%-- 第二行:密码 --%>
         <tr>
             <td><label for="password">密码</label></td>

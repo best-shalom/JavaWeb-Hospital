@@ -140,4 +140,23 @@ public class DepartmentDaoimpl {
             return null;
         }
     }
+
+    public int find(String DepartmentName) {
+        try{
+            Connection connection=DbConnection.getConnection();
+            String sql="select * from department where DepartmentName=?";
+            PreparedStatement pt=connection.prepareStatement(sql);
+            pt.setString(1,DepartmentName);
+            ResultSet rs=pt.executeQuery();
+            int DepartmentID=0;
+            if(rs.next()){
+                DepartmentID= rs.getInt("DepartmentID");
+                return DepartmentID;
+            }
+            return -1;
+        }catch (Exception e){
+            e.printStackTrace();
+            return -1;
+        }
+    }
 }
