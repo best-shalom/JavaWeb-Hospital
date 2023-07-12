@@ -80,7 +80,7 @@
 <script>
     function SelectDoctor(UserID, HospitalID, DepartmentID) {
         // 在这里进行页面跳转
-        window.location.href = "./PatientSelectDepartment.jsp?UserID=" + UserID + "&HospitalID=" + HospitalID + "&DepartmentID=" + DepartmentID;
+        window.location.href = "./PatientSelectDoctor.jsp?UserID=" + UserID + "&HospitalID=" + HospitalID + "&DepartmentID=" + DepartmentID;
     }
 </script>
 

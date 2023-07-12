@@ -56,4 +56,5 @@ public interface SickDao {
      * @return 返回列表
      */
     public List<Sick> find(int key);
+    public List<Sick> docfind(int id);
 }

@@ -75,7 +75,7 @@
     <ul class="navbar">
         <li><a href="DoctorUpdate.jsp?phone=<%=phone%>">更新用户信息</a></li>
         <li><a href="DoctorSickShow.jsp?id=<%=id%>">查看预约</a></li>
-<%--        <li><a href="./AdminHospitals.jsp">医院管理</a></li>--%>
+        <%--        <li><a href="./AdminHospitals.jsp">医院管理</a></li>--%>
         <!-- 添加更多功能模块链接 -->
     </ul>
 </div>
@@ -101,9 +101,9 @@
             </thead>
             <tbody>
             <tr>
-<%--                <td><%=doctor.getId() %></td>--%>
+                <%--                <td><%=doctor.getId() %></td>--%>
                 <td><%=doctor.getName() %></td>
-<%--                <td><%=doctor.getPassword() %></td>--%>
+                <%--                <td><%=doctor.getPassword() %></td>--%>
                 <td><%=doctor.getSex() %></td>
                 <td><%=doctor.getAge()%></td>
                 <td><%=doctor.getPhone()%></td>
@@ -115,7 +115,7 @@
                     <label>
                         <input type="hidden" name="Id" value="<%=doctor.getId()%>">
                     </label>
-<%--                    <button class="button" type="submit" onclick="DeletePatient(<%=doctor.getId()%>); return false;">删除用户</button>--%>
+                    <%--                    <button class="button" type="submit" onclick="DeletePatient(<%=doctor.getId()%>); return false;">删除用户</button>--%>
                 </td>
             </tr>
             <% } %>
@@ -126,4 +126,3 @@
 </div>
 
 </body>
-</html>
