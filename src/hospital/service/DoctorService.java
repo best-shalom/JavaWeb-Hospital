@@ -92,19 +92,19 @@ public class DoctorService {
     /**
      * 更新挂号信息
      * @param id 根据id查找更新
-     * @param part 可更新内容--科室
-     * @param sick 可更新内容--病名
-     * @param inform 可更新内容--病情描述
      * @return 返回是否更新成功
      */
-    public boolean SickUpdate(int id,String part,String sick,String inform){
+    public boolean SickUpdate(int id,String P_Name,String D_Name,String AppointmentDate,String AppointmentTime,String HospitalName,String DepartmentName){
         Sick s=sickDao.findById(id);
         if(s==null){
             return false;
         }
-        s.setPart(part);
-        s.setSick(sick);
-        s.setInform(inform);
+        s.setP_name(P_Name);
+        s.setD_name(D_Name);
+        s.setData(AppointmentDate);
+        s.setTime(AppointmentTime);
+        s.setHospitalname(HospitalName);
+        s.setDepartmentname(DepartmentName);
         return sickDao.update(s);
     }
     public Sick SickFindById(int id){

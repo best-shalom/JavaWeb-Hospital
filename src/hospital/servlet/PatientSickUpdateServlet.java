@@ -21,15 +21,16 @@ public class PatientSickUpdateServlet extends HttpServlet {
         int id= Integer.parseInt(req.getParameter("id"));
         /*patientId保持不变*/
         Sick s=patientService.SickFindById(id);
+
         /*获取patientId以传给SickShow页面*/
         int patientId=s.getPatientId();
-        String name=req.getParameter("name");
-        int age= Integer.parseInt(req.getParameter("age"));
-        String sex=req.getParameter("sex");
-        String part=req.getParameter("part");
-        String sick=req.getParameter("sick");
-        String inform=req.getParameter("inform");
-        boolean flag=patientService.SickUpdate(id,name,age,sex,part,sick,inform);
+        String P_Name=req.getParameter("P_Name");
+        String D_Name=req.getParameter("D_Name");
+        String AppointmentDate=req.getParameter("AppointmentDate");
+        String AppointmentTime=req.getParameter("AppointmentTime");
+        String HospitalName=req.getParameter("HospitalName");
+        String DepartmentName=req.getParameter("DepartmentName");
+        boolean flag=patientService.SickUpdate(id,P_Name,D_Name,AppointmentDate,AppointmentTime,HospitalName,DepartmentName);
         if(flag){
             resp.getWriter().write("挂号数据更新成功!");
             resp.sendRedirect("PatientSickShow.jsp?id="+patientId);
