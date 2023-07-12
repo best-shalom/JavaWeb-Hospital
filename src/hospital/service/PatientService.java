@@ -24,17 +24,17 @@ public class PatientService {
     PatientDaoImpl patientDao=new PatientDaoImpl();
     SickDaoImpl sickDao=new SickDaoImpl();
 
-    public boolean PatientLogin(String PhoneNumber,String password){
+    public Patient PatientLogin(String PhoneNumber,String password){
         Patient patient=patientDao.find(PhoneNumber);
         if(patient==null){
             System.out.println("Patient not found");
-            return false;
+            return null;
         }
         if(!Objects.equals(patient.getPassword(), password)){
             System.out.println("Password error" + password);
-            return false;
+            return null;
         }
-        return true;
+        return patient;
     }
 
     public Patient PatientRegister(String name,String password,int age,String sex,String email,String idCard,String DateOfBirth,String PhoneNumber){
@@ -55,15 +55,18 @@ public class PatientService {
         return patientDao.find(PhoneNumber);
     }
 
-    public boolean PatientUpdate(String PhoneNumber,String name,String password,int age,String sex){
-        Patient patient=patientDao.find(PhoneNumber);
+    public boolean PatientUpdate(int UserID, String Name,String Sex, int Age, String IDCard, String PhoneNumber, String Email, String DateOfBirth){
+        Patient patient=patientDao.find(UserID);
         if(patient==null){
             return false;
         }
-        patient.setName(name);
-        patient.setPassword(password);
-        patient.setAge(age);
-        patient.setSex(sex);
+        patient.setName(Name);
+        patient.setSex(Sex);
+        patient.setAge(Age);
+        patient.setIdCard(IDCard);
+        patient.setPhoneNumber(PhoneNumber);
+        patient.setEmail(Email);
+        patient.setDateOfBirth(DateOfBirth);
         return patientDao.update(patient);
     }
 

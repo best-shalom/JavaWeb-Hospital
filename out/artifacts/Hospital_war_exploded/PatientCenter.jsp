@@ -1,3 +1,5 @@
+<%@ page import="hospital.user.Patient" %>
+<%@ page import="hospital.dao.impl.PatientDaoImpl" %>
 <%
     int UserID;
     if (request.getAttribute("UserID")!= null) {
@@ -5,6 +7,8 @@
     } else {
         UserID = Integer.parseInt(request.getParameter("UserID"));
     }
+    PatientDaoImpl patientDaoImpl = new PatientDaoImpl();
+    String Name = patientDaoImpl.find(UserID).getName();
 %><%--
   Created by IntelliJ IDEA.
   User: ZhangYe
@@ -17,6 +21,10 @@
 <head>
     <title>用户首页</title>
     <style>
+        .welcome-message {
+            font-size: 18px;
+            margin-left: 1300px;
+        }
         ul.navbar {
             list-style-type: none;
             margin: 0;
@@ -61,7 +69,14 @@
     </style>
 </head>
 <body>
-<h1>桂林市医院统一预约挂号服务平台</h1>
+<div>
+    <h1>
+        桂林市医院统一预约挂号服务平台
+    </h1>
+    <span class="welcome-message">
+        欢迎<%= Name %>使用桂林市医院统一预约挂号服务平台
+    </span>
+</div>
 <div>
     <!-- 导航栏 -->
     <ul class="navbar">
@@ -71,9 +86,7 @@
     </ul>
 </div>
 
-<div>
-    <h1>首页</h1>
-</div>
+
 
 </body>
 </html>

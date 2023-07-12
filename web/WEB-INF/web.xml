@@ -110,7 +110,22 @@
         <servlet-name>PatientRemoveServlet</servlet-name>
         <url-pattern>/PatientRemove</url-pattern>
     </servlet-mapping>
-
+    <servlet>
+        <servlet-name>HospitalRemoveServlet</servlet-name>
+        <servlet-class>hospital.servlet.HospitalRemoveServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HospitalRemoveServlet</servlet-name>
+        <url-pattern>/HospitalRemove</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UpdateHospitalServlet</servlet-name>
+        <servlet-class>hospital.servlet.UpdateHospitalServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateHospitalServlet</servlet-name>
+        <url-pattern>/UpdateHospital</url-pattern>
+    </servlet-mapping>
     <!--设置启动页为选择页面-->
     <welcome-file-list>
         <welcome-file>Choose.jsp</welcome-file>

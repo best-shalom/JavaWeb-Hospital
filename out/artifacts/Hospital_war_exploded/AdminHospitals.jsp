@@ -5,8 +5,6 @@
   Time: 9:11
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page import="hospital.service.PatientService" %>
-<%@ page import="hospital.user.Patient" %>
 <%@ page import="java.util.List" %>
 <%@ page import="hospital.dao.impl.HospitalDaoImpl" %>
 <%@ page import="hospital.user.Hospital" %>
@@ -14,6 +12,10 @@
 <html>
 <head>
   <title>管理员首页</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- 引入一个js文件 -->
+  <script src="js/Hospital.js"></script>
   <style>
     ul.navbar {
       list-style-type: none;
@@ -86,12 +88,14 @@
     <table>
       <thead>
       <tr>
-        <th>用户名</th>
-        <th>性别</th>
-        <th>年龄</th>
-        <th>电话号码</th>
-        <th>邮箱地址</th>
-        <th>出生日期</th>
+        <th>医院名称</th>
+        <th>级别</th>
+        <th>详细地址</th>
+        <th>联系电话</th>
+        <th>院长姓名</th>
+        <th>成立日期</th>
+        <th>运营状态</th>
+        <th>简介</th>
         <th>操作</th>
       </tr>
       </thead>
@@ -110,7 +114,8 @@
           <label>
             <input type="hidden" name="Id" value="<%=hospital.getId()%>">
           </label>
-          <button class="button" type="submit" onclick="DeletePatient(<%=hospital.getId()%>); return false;">删除医院</button>
+          <button class="button" type="submit" onclick="DeleteHospital(<%=hospital.getId()%>); return false;">删除医院</button>
+          <button class="button" type="submit" onclick="ReviseHospital(<%=hospital.getId()%>); return false;">修改信息</button>
         </td>
       </tr>
       <% } %>

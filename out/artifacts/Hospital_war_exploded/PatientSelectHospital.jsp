@@ -91,11 +91,14 @@
         <th>电话号码</th>
         <th>邮箱地址</th>
         <th>出生日期</th>
-        <th>操作</th>
+        <th>运营状态</th>
+        <th>介绍</th>
+        <th></th>
       </tr>
       </thead>
       <tbody>
-      <%for (Hospital hospital : hospitalList) { %>
+      <%for (Hospital hospital : hospitalList) {
+      %>
       <tr>
         <td><%= hospital.getName() %></td>
         <td><%= hospital.getLevel() %></td>
@@ -109,7 +112,7 @@
           <label>
             <input type="hidden" name="Id" value="<%=hospital.getId()%>">
           </label>
-          <button class="button" type="submit" onclick="SelectDepartment(<%=hospital.getId()%>); return false;">选择该医院</button>
+          <button class="button" type="submit" onclick="SelectDepartment(<%=UserID%>,<%=hospital.getId()%>); return false;">选择该医院</button>
         </td>
       </tr>
       <% } %>
@@ -119,9 +122,9 @@
 </div>
 
 <script>
-  function SelectDepartment(HospitalID) {
+  function SelectDepartment(UserID,HospitalID) {
     // 在这里进行页面跳转
-    window.location.href = "./PatientSelectDepartment.jsp?HospitalID=" + HospitalID;
+    window.location.href = "./PatientSelectDepartment.jsp?UserID=" + UserID + "&HospitalID=" + HospitalID;
   }
 </script>
 
