@@ -74,7 +74,6 @@ public class DoctorService {
 
     /**
      * 显示相同科室的病人数据
-     * @param part 所属科室(由医生主页传入)
      * @return 返回该科室的病人数据
      */
     public List<Sick> SickShow(int id){

@@ -176,18 +176,19 @@
 </head>
 <body>
 <h1>桂林市医院统一预约挂号服务平台</h1>
-<div>
-    <!-- 导航栏 -->
-    <ul class="navbar">
-<%--        <li><a href="./AdminCenter.jsp">首页</a></li>--%>
-<%--        <li><a href="./AdminUsers.jsp">用户管理</a></li>--%>
-<%--        <li><a href="./AdminHospitals.jsp">医院管理</a></li>--%>
-        <!-- 添加更多功能模块链接 -->
-    </ul>
-</div>
 
 <div>
     <h1>用户管理</h1>
+    <%
+        DoctorService doctorService=new DoctorService();
+        /*获取从医生主页传入的所属科室
+         * 或者从SickDelete页面传入
+         * 或者从SickUpdate页面传入
+         */
+        String res=request.getParameter("id");
+        int id = Integer.valueOf(res);
+        List<Sick> sickList=doctorService.SickShow(id);
+        %>
     <div>
         <table>
             <thead>
@@ -202,19 +203,12 @@
                 <th>支付状态</th>
                 <th>支付金额</th>
             </tr>
-            <%
-                DoctorService doctorService=new DoctorService();
-                /*获取从医生主页传入的所属科室
-                 * 或者从SickDelete页面传入
-                 * 或者从SickUpdate页面传入
-                 */
-                String res=request.getParameter("id");
-                int id = Integer.valueOf(res);
-                List<Sick> sickList=doctorService.SickShow(id);
-                for (Sick s:sickList)
-                {%>
             </thead>
             <tbody>
+            <%
+                if(sickList != null){
+                    for (Sick s:sickList)
+            {%>
             <tr>
                 <td><%=s.getP_name()%></td>
                 <td><%=s.getD_name()%></td>
@@ -225,18 +219,20 @@
                 <td><%=s.getAppointmentstatus()%></td>
                 <td><%=s.getPaymentstatus()%></td>
                 <td><%=s.getPaymentamount()%></td>
-                <td>
+<%--                <td>--%>
 <%--                    <label>--%>
 <%--                        <input type="hidden" name="Id" value="<%=patient.getUserID()%>">--%>
 <%--                    </label>--%>
 <%--                    <button class="button" type="submit" onclick="DeletePatient(<%=patient.getUserID()%>); return false;">删除用户</button>--%>
-                </td>
+<%--                </td>--%>
             </tr>
-            <% } %>
+            <%
+                }
+            }
+            %>
             </tbody>
         </table>
     </div>
-
 </div>
 
 </body>
