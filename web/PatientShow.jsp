@@ -21,6 +21,7 @@
     <script src="js/Patient.js"></script>
 
     <link rel="stylesheet" href="./css/patientshow.css">
+
 </head>
 <body>
 <h1>桂林市医院统一预约挂号服务平台</h1>
