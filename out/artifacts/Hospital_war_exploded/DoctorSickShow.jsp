@@ -178,7 +178,7 @@
 <h1>桂林市医院统一预约挂号服务平台</h1>
 
 <div>
-    <h1>用户管理</h1>
+    <h1>预约记录</h1>
     <%
         DoctorService doctorService=new DoctorService();
         /*获取从医生主页传入的所属科室

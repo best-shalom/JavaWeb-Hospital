@@ -1,6 +1,8 @@
 package hospital.service;
 
+import hospital.dao.impl.DepartmentDaoimpl;
 import hospital.dao.impl.DoctorDaoImpl;
+import hospital.dao.impl.HospitalDaoImpl;
 import hospital.dao.impl.SickDaoImpl;
 import hospital.user.Doctor;
 import hospital.user.Sick;
@@ -38,6 +40,10 @@ public class DoctorService {
                                  String phone, String part, String part2, String part3, String discript){
         Doctor doctor=new Doctor();
         doctor.setName(name);
+        DepartmentDaoimpl departmentdaoimpl = new DepartmentDaoimpl();
+        HospitalDaoImpl hospitalDaoImpl = new HospitalDaoImpl();
+        doctor.setHospitalid(hospitalDaoImpl.find(part));
+        doctor.setDepartmentid(departmentdaoimpl.find(part2));
         doctor.setPassword(password);
         doctor.setSex(sex);
         doctor.setAge(age);
