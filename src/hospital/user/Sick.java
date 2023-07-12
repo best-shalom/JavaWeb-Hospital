@@ -17,6 +17,9 @@ public class Sick {
     private int id;
     private int patientId;
     private String P_name;
+
+    private int doctorid;
+
     private String D_name;
     private String Data;
     private String Time;
@@ -112,5 +115,13 @@ public class Sick {
 
     public void setPaymentamount(String paymentamount) {
         this.paymentamount = paymentamount;
+    }
+
+    public int getDoctorid() {
+        return doctorid;
+    }
+
+    public void setDoctorid(int doctorid) {
+        this.doctorid = doctorid;
     }
 }

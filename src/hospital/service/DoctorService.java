@@ -77,8 +77,8 @@ public class DoctorService {
      * @param part 所属科室(由医生主页传入)
      * @return 返回该科室的病人数据
      */
-    public List<Sick> SickShow(String part){
-        return sickDao.find(part);
+    public List<Sick> SickShow(int id){
+        return sickDao.docfind(id);
     }
 
     public boolean SickDelete(int id){
