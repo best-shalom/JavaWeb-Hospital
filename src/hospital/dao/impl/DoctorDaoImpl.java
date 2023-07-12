@@ -7,10 +7,13 @@ package hospital.dao.impl;
 
 import hospital.dao.DoctorDao;
 import hospital.dbc.DbConnection;
+import hospital.user.Department;
 import hospital.user.Doctor;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DoctorDaoImpl implements DoctorDao {
     public DoctorDaoImpl() {
@@ -119,6 +122,41 @@ public class DoctorDaoImpl implements DoctorDao {
             }
         } catch (Exception var7) {
             var7.printStackTrace();
+            return null;
+        }
+    }
+
+
+    public List<Doctor> findAll(int hospitalid, int departmentid) {
+        try {
+            Connection connection = DbConnection.getConnection();
+            String sql = "select * from doctor where HospitalId=? and DepartmentId=?";
+            PreparedStatement pt = connection.prepareStatement(sql);
+            pt.setInt(1, hospitalid);
+            pt.setInt(2, departmentid);
+            ResultSet rs = pt.executeQuery();
+            List<Doctor> doctorList = new ArrayList<>();
+            while (rs.next()) {
+                Doctor doctor = new Doctor();
+                doctor.setId(rs.getInt("DoctorID"));
+                doctor.setName(rs.getString("DoctorName"));
+                doctor.setPassword(rs.getString("D_Password"));
+                doctor.setSex(rs.getString("sex"));
+                doctor.setAge(rs.getInt("age"));
+                doctor.setPhone(rs.getString("phone"));
+                doctor.setPart(rs.getString("hospitalname"));
+                doctor.setPart2(rs.getString("departmentname"));
+                doctor.setPart3(rs.getString("ProfessionalTitle"));
+                doctor.setDiscript(rs.getString("introduction"));
+                doctorList.add(doctor);
+            }
+            if (doctorList == null) {
+                System.out.println("no");
+            }
+            return doctorList;
+        } catch (Exception e) {
+            System.out.println("NO");
+            e.printStackTrace();
             return null;
         }
     }
