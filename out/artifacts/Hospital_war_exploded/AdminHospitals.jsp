@@ -8,7 +8,8 @@
 <%@ page import="hospital.service.PatientService" %>
 <%@ page import="hospital.user.Patient" %>
 <%@ page import="java.util.List" %>
-<%@ page import="hospital.dao.impl.PatientDaoImpl" %>
+<%@ page import="hospital.dao.impl.HospitalDaoImpl" %>
+<%@ page import="hospital.user.Hospital" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -71,6 +72,51 @@
 
 <div>
   <h1>医院管理</h1>
+  <%
+    HospitalDaoImpl hospitaldaoimpl = new HospitalDaoImpl();
+    List<Hospital> hospitalList = null;
+    try {
+      hospitalList = hospitaldaoimpl.findAll(); // 调用 findAll() 函数获取全部用户信息
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    assert hospitalList != null;
+  %>
+  <div>
+    <table>
+      <thead>
+      <tr>
+        <th>用户名</th>
+        <th>性别</th>
+        <th>年龄</th>
+        <th>电话号码</th>
+        <th>邮箱地址</th>
+        <th>出生日期</th>
+        <th>操作</th>
+      </tr>
+      </thead>
+      <tbody>
+      <%for (Hospital hospital : hospitalList) { %>
+      <tr>
+        <td><%= hospital.getName() %></td>
+        <td><%= hospital.getLevel() %></td>
+        <td><%= hospital.getAddress() %></td>
+        <td><%= hospital.getNumber() %></td>
+        <td><%= hospital.getPresidentname() %></td>
+        <td><%= hospital.getTime() %></td>
+        <td><%= hospital.getStatus() %></td>
+        <td><%= hospital.getIntroduction() %></td>
+        <td>
+          <label>
+            <input type="hidden" name="Id" value="<%=hospital.getId()%>">
+          </label>
+          <button class="button" type="submit" onclick="DeletePatient(<%=hospital.getId()%>); return false;">删除医院</button>
+        </td>
+      </tr>
+      <% } %>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 </body>

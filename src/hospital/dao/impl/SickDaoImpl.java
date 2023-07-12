@@ -19,15 +19,18 @@ public class SickDaoImpl implements SickDao {
     public boolean add(Sick sick) {
         try{
             Connection connection= DbConnection.getConnection();
-            String sql="insert into sick(patientId,name,age,sex,part,sick,inform) values(?,?,?,?,?,?,?)";
+            String sql="insert into sick(patientId,P_Name,D_Name,AppointmentDate,AppointmentTime,HospitalName,DepartmentName,AppointmentStatus,PaymentStatus,PaymentAmount) values(?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement pt=connection.prepareStatement(sql);
             pt.setInt(1,sick.getPatientId());
-            pt.setString(2,sick.getName());
-            pt.setInt(3,sick.getAge());
-            pt.setString(4,sick.getSex());
-            pt.setString(5,sick.getPart());
-            pt.setString(6,sick.getSick());
-            pt.setString(7,sick.getInform());
+            pt.setString(2,sick.getP_name());
+            pt.setString(3,sick.getD_name());
+            pt.setString(4,sick.getData());
+            pt.setString(5,sick.getTime());
+            pt.setString(6,sick.getHospitalname());
+            pt.setString(7,sick.getDepartmentname());
+            pt.setString(8,sick.getAppointmentstatus());
+            pt.setString(9,sick.getPaymentstatus());
+            pt.setString(10,sick.getPaymentamount());
             if(pt.executeUpdate()>0){
                 return true;
             }
@@ -42,7 +45,7 @@ public class SickDaoImpl implements SickDao {
     public boolean delete(int id) {
         try {
             Connection connection=DbConnection.getConnection();
-            String sql="delete from sick where id=?";
+            String sql="delete from sick where AppointmentID=?";
             PreparedStatement pt=connection.prepareStatement(sql);
             pt.setInt(1,id);
             if(pt.executeUpdate()>0){
@@ -59,16 +62,19 @@ public class SickDaoImpl implements SickDao {
     public boolean update(Sick sick) {
         try{
             Connection connection=DbConnection.getConnection();
-            String sql="update sick set patientId=?,name=?,age=?,sex=?,part=?,sick=?,inform=? where id=?";
+            String sql="update sick set patientId=?,P_Name=?,D_Name=?,AppointmentDate=?,AppointmentTime=?,HospitalName=?,DepartmentName=?,AppointmentStatus=?,PaymentStatus=?,PaymentAmount=? where AppointmentID=?";
             PreparedStatement pt=connection.prepareStatement(sql);
             pt.setInt(1,sick.getPatientId());
-            pt.setString(2,sick.getName());
-            pt.setInt(3,sick.getAge());
-            pt.setString(4,sick.getSex());
-            pt.setString(5,sick.getPart());
-            pt.setString(6,sick.getSick());
-            pt.setString(7,sick.getInform());
-            pt.setInt(8,sick.getId());
+            pt.setString(2,sick.getP_name());
+            pt.setString(3,sick.getD_name());
+            pt.setString(4,sick.getData());
+            pt.setString(5,sick.getTime());
+            pt.setString(6,sick.getHospitalname());
+            pt.setString(7,sick.getDepartmentname());
+            pt.setString(8,sick.getAppointmentstatus());
+            pt.setString(9,sick.getPaymentstatus());
+            pt.setString(10,sick.getPaymentamount());
+            pt.setInt(11,sick.getId());
             if(pt.executeUpdate()>0){
                 return true;
             }
@@ -83,20 +89,23 @@ public class SickDaoImpl implements SickDao {
     public Sick findById(int id) {
         try{
             Connection connection=DbConnection.getConnection();
-            String sql="select * from sick where id=?";
+            String sql="select * from sick where AppointmentID=?";
             PreparedStatement pt=connection.prepareStatement(sql);
             pt.setInt(1,id);
             ResultSet rs=pt.executeQuery();
             Sick sick=new Sick();
             if(rs.next()){
-                sick.setId(rs.getInt("id"));
+                sick.setId(rs.getInt("AppointmentID"));
                 sick.setPatientId(rs.getInt("patientId"));
-                sick.setName(rs.getString("name"));
-                sick.setAge(rs.getInt("age"));
-                sick.setSex(rs.getString("sex"));
-                sick.setPart(rs.getString("part"));
-                sick.setSick(rs.getString("sick"));
-                sick.setInform(rs.getString("inform"));
+                sick.setP_name(rs.getString("P_Name"));
+                sick.setD_name(rs.getString("D_Name"));
+                sick.setData(rs.getString("AppointmentDate"));
+                sick.setTime(rs.getString("AppointmentTime"));
+                sick.setHospitalname(rs.getString("HospitalName"));
+                sick.setDepartmentname(rs.getString("DepartmentName"));
+                sick.setAppointmentstatus(rs.getString("AppointmentStatus"));
+                sick.setPaymentstatus(rs.getString("PaymentStatus"));
+                sick.setPaymentamount(rs.getString("PaymentAmount"));
                 return sick;
             }
             return null;
@@ -111,23 +120,25 @@ public class SickDaoImpl implements SickDao {
         try{
             Connection connection=DbConnection.getConnection();
             List<Sick> result=new ArrayList<>();
-            String sql="select * from sick where name=? or sex=? or part=? or sick=?";
+            String sql="select * from sick where D_Name=? or HospitalName=? or DepartmentName=?";
             PreparedStatement pt=connection.prepareStatement(sql);
             pt.setString(1,key);
             pt.setString(2,key);
             pt.setString(3,key);
-            pt.setString(4,key);
             ResultSet rs=pt.executeQuery();
             while(rs.next()){
                 Sick sick=new Sick();
-                sick.setId(rs.getInt("id"));
+                sick.setId(rs.getInt("AppointmentID"));
                 sick.setPatientId(rs.getInt("patientId"));
-                sick.setName(rs.getString("name"));
-                sick.setAge(rs.getInt("age"));
-                sick.setSex(rs.getString("sex"));
-                sick.setPart(rs.getString("part"));
-                sick.setSick(rs.getString("sick"));
-                sick.setInform(rs.getString("inform"));
+                sick.setP_name(rs.getString("P_Name"));
+                sick.setD_name(rs.getString("D_Name"));
+                sick.setData(rs.getString("AppointmentDate"));
+                sick.setTime(rs.getString("AppointmentTime"));
+                sick.setHospitalname(rs.getString("HospitalName"));
+                sick.setDepartmentname(rs.getString("DepartmentName"));
+                sick.setAppointmentstatus(rs.getString("AppointmentStatus"));
+                sick.setPaymentstatus(rs.getString("PaymentStatus"));
+                sick.setPaymentamount(rs.getString("PaymentAmount"));
                 result.add(sick);
             }
             return result;
@@ -148,14 +159,17 @@ public class SickDaoImpl implements SickDao {
             ResultSet rs=pt.executeQuery();
             while(rs.next()){
                 Sick sick=new Sick();
-                sick.setId(rs.getInt("id"));
+                sick.setId(rs.getInt("AppointmentID"));
                 sick.setPatientId(rs.getInt("patientId"));
-                sick.setName(rs.getString("name"));
-                sick.setAge(rs.getInt("age"));
-                sick.setSex(rs.getString("sex"));
-                sick.setPart(rs.getString("part"));
-                sick.setSick(rs.getString("sick"));
-                sick.setInform(rs.getString("inform"));
+                sick.setP_name(rs.getString("P_Name"));
+                sick.setD_name(rs.getString("D_Name"));
+                sick.setData(rs.getString("AppointmentDate"));
+                sick.setTime(rs.getString("AppointmentTime"));
+                sick.setHospitalname(rs.getString("HospitalName"));
+                sick.setDepartmentname(rs.getString("DepartmentName"));
+                sick.setAppointmentstatus(rs.getString("AppointmentStatus"));
+                sick.setPaymentstatus(rs.getString("PaymentStatus"));
+                sick.setPaymentamount(rs.getString("PaymentAmount"));
                 result.add(sick);
             }
             return result;

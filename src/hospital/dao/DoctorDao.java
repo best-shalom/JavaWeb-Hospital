@@ -34,8 +34,8 @@ public interface DoctorDao {
     /**
      * 查找医生数据
      * (登录时判断是否存在)
-     * @param id 医生id
+     * @param phone 医生电话
      * @return 返回医生数据(不存在则为null)
      */
-    public Doctor find(int id);
+    public Doctor find(String phone);
 }

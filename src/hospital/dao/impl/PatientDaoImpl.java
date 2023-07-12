@@ -121,6 +121,32 @@ public class PatientDaoImpl implements PatientDao {
             return null;
         }
     }
+    public Patient find(int UserID) {
+        try{
+            Connection connection=DbConnection.getConnection();
+            String sql="select * from patients where UserID=?";
+            PreparedStatement pt=connection.prepareStatement(sql);
+            pt.setInt(1,UserID);
+            ResultSet rs=pt.executeQuery();
+            Patient patient=new Patient();
+            if(rs.next()){
+                patient.setUserID(rs.getInt("UserId"));
+                patient.setName(rs.getString("Name"));
+                patient.setPassword(rs.getString("Password"));
+                patient.setSex(rs.getString("Sex"));
+                patient.setAge(rs.getInt("Age"));
+                patient.setIdCard(rs.getString("IDCard"));
+                patient.setPhoneNumber(rs.getString("PhoneNumber"));
+                patient.setEmail(rs.getString("email"));
+                patient.setDateOfBirth(rs.getString("DateOfBirth"));
+                return patient;
+            }
+            return null;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
     public List<Patient> findAll() {
         try {
             Connection connection = DbConnection.getConnection();

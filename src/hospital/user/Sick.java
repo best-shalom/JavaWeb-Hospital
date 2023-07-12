@@ -16,12 +16,15 @@ package hospital.user;
 public class Sick {
     private int id;
     private int patientId;
-    private String name;
-    private int age;
-    private String sex;
-    private String part;
-    private String sick;
-    private String inform;
+    private String P_name;
+    private String D_name;
+    private String Data;
+    private String Time;
+    private String hospitalname;
+    private String departmentname;
+    private String appointmentstatus;
+    private String paymentstatus;
+    private String paymentamount;
 
     public int getId() {
         return id;
@@ -39,51 +42,75 @@ public class Sick {
         this.patientId = patientId;
     }
 
-    public String getName() {
-        return name;
+    public String getP_name() {
+        return P_name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setP_name(String p_name) {
+        P_name = p_name;
     }
 
-    public int getAge() {
-        return age;
+    public String getD_name() {
+        return D_name;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setD_name(String d_name) {
+        D_name = d_name;
     }
 
-    public String getSex() {
-        return sex;
+    public String getData() {
+        return Data;
     }
 
-    public void setSex(String sex) {
-        this.sex = sex;
+    public void setData(String data) {
+        Data = data;
     }
 
-    public String getPart() {
-        return part;
+    public String getTime() {
+        return Time;
     }
 
-    public void setPart(String part) {
-        this.part = part;
+    public void setTime(String time) {
+        Time = time;
     }
 
-    public String getSick() {
-        return sick;
+    public String getHospitalname() {
+        return hospitalname;
     }
 
-    public void setSick(String sick) {
-        this.sick = sick;
+    public void setHospitalname(String hospitalname) {
+        this.hospitalname = hospitalname;
     }
 
-    public String getInform() {
-        return inform;
+    public String getDepartmentname() {
+        return departmentname;
     }
 
-    public void setInform(String inform) {
-        this.inform = inform;
+    public void setDepartmentname(String departmentname) {
+        this.departmentname = departmentname;
+    }
+
+    public String getAppointmentstatus() {
+        return appointmentstatus;
+    }
+
+    public void setAppointmentstatus(String appointmentstatus) {
+        this.appointmentstatus = appointmentstatus;
+    }
+
+    public String getPaymentstatus() {
+        return paymentstatus;
+    }
+
+    public void setPaymentstatus(String paymentstatus) {
+        this.paymentstatus = paymentstatus;
+    }
+
+    public String getPaymentamount() {
+        return paymentamount;
+    }
+
+    public void setPaymentamount(String paymentamount) {
+        this.paymentamount = paymentamount;
     }
 }

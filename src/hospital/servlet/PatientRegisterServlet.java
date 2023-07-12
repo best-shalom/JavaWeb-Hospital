@@ -32,12 +32,12 @@ public class PatientRegisterServlet extends HttpServlet {
         String DateOfBirth= req.getParameter("DateOfBirth");
         String PhoneNumber= req.getParameter("PhoneNumber");
         Patient patient=patientService.PatientRegister(name,password,age,sex,email,idCard,DateOfBirth,PhoneNumber);
-        int id=patient.getUserID();
+        int UserID=patient.getUserID();
 
-        if(id!=0 ){
+        if(UserID!=0 ){
             resp.getWriter().write("注册成功!");
             /*转发到病人个人主页*/
-            req.setAttribute("id",id);
+            req.setAttribute("UserID", UserID);
             req.getRequestDispatcher("PatientShow.jsp").forward(req,resp);
         } else{
             resp.getWriter().write("注册失败!");

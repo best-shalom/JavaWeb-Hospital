@@ -1,6 +1,7 @@
 package hospital.servlet;
 
 import hospital.service.PatientService;
+import hospital.user.Patient;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -23,11 +24,12 @@ public class PatientLoginServlet extends HttpServlet {
         }
         String phoneNumber = req.getParameter("PhoneNumber");
         String password = req.getParameter("Password");
-        boolean flag = patientService.PatientLogin(phoneNumber, password);
-        if (flag) {
+        Patient patient = patientService.PatientLogin(phoneNumber, password);
+        int UserID = patient.getUserID();
+        if (UserID != 0) {
             resp.getWriter().write("登录成功!");
-            req.setAttribute("PhoneNumber", phoneNumber);
-            req.getRequestDispatcher("PatientShow.jsp").forward(req, resp);
+            req.setAttribute("UserID", UserID);
+            req.getRequestDispatcher("PatientCenter.jsp").forward(req, resp);
         } else {
             req.setAttribute("Errormessage", "登录失败！手机号或密码错误，请重新输入。");
             req.getRequestDispatcher("PatientLogin.jsp").forward(req, resp);

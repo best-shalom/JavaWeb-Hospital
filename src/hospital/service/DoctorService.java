@@ -23,8 +23,8 @@ public class DoctorService {
     DoctorDaoImpl doctorDao=new DoctorDaoImpl();
     SickDaoImpl sickDao=new SickDaoImpl();
 
-    public boolean DoctorLogin(int id,String password){
-        Doctor doctor=doctorDao.find(id);
+    public boolean DoctorLogin(String phone,String password){
+        Doctor doctor=doctorDao.find(phone);
         if(doctor==null){
             return false;
         }
@@ -51,16 +51,16 @@ public class DoctorService {
 
     /**
      * 显示自身信息
-     * @param id 这里的id可以直接由登录界面的id传入
+     * @param phone 这里的phone可以直接由登录界面的phone传入
      *           注册界面则由传入的doctor.getId()获取
      * @return 返回医生信息
      */
-    public Doctor DoctorShow(int id){
-        return doctorDao.find(id);
+    public Doctor DoctorShow(String phone){
+        return doctorDao.find(phone);
     }
 
-    public boolean DoctorUpdate(int id,String name,String password,int age,String sex,String part){
-        Doctor doctor=doctorDao.find(id);
+    public boolean DoctorUpdate(String phone,String name,String password,int age,String sex,String part){
+        Doctor doctor=doctorDao.find(phone);
         if(doctor==null){
             return false;
         }
@@ -92,19 +92,19 @@ public class DoctorService {
     /**
      * 更新挂号信息
      * @param id 根据id查找更新
-     * @param part 可更新内容--科室
-     * @param sick 可更新内容--病名
-     * @param inform 可更新内容--病情描述
      * @return 返回是否更新成功
      */
-    public boolean SickUpdate(int id,String part,String sick,String inform){
+    public boolean SickUpdate(int id,String P_Name,String D_Name,String AppointmentDate,String AppointmentTime,String HospitalName,String DepartmentName){
         Sick s=sickDao.findById(id);
         if(s==null){
             return false;
         }
-        s.setPart(part);
-        s.setSick(sick);
-        s.setInform(inform);
+        s.setP_name(P_Name);
+        s.setD_name(D_Name);
+        s.setData(AppointmentDate);
+        s.setTime(AppointmentTime);
+        s.setHospitalname(HospitalName);
+        s.setDepartmentname(DepartmentName);
         return sickDao.update(s);
     }
     public Sick SickFindById(int id){

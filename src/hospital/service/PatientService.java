@@ -24,17 +24,17 @@ public class PatientService {
     PatientDaoImpl patientDao=new PatientDaoImpl();
     SickDaoImpl sickDao=new SickDaoImpl();
 
-    public boolean PatientLogin(String PhoneNumber,String password){
+    public Patient PatientLogin(String PhoneNumber,String password){
         Patient patient=patientDao.find(PhoneNumber);
         if(patient==null){
             System.out.println("Patient not found");
-            return false;
+            return null;
         }
         if(!Objects.equals(patient.getPassword(), password)){
             System.out.println("Password error" + password);
-            return false;
+            return null;
         }
-        return true;
+        return patient;
     }
 
     public Patient PatientRegister(String name,String password,int age,String sex,String email,String idCard,String DateOfBirth,String PhoneNumber){
@@ -55,15 +55,18 @@ public class PatientService {
         return patientDao.find(PhoneNumber);
     }
 
-    public boolean PatientUpdate(String PhoneNumber,String name,String password,int age,String sex){
-        Patient patient=patientDao.find(PhoneNumber);
+    public boolean PatientUpdate(int UserID, String Name,String Sex, int Age, String IDCard, String PhoneNumber, String Email, String DateOfBirth){
+        Patient patient=patientDao.find(UserID);
         if(patient==null){
             return false;
         }
-        patient.setName(name);
-        patient.setPassword(password);
-        patient.setAge(age);
-        patient.setSex(sex);
+        patient.setName(Name);
+        patient.setSex(Sex);
+        patient.setAge(Age);
+        patient.setIdCard(IDCard);
+        patient.setPhoneNumber(PhoneNumber);
+        patient.setEmail(Email);
+        patient.setDateOfBirth(DateOfBirth);
         return patientDao.update(patient);
     }
 
@@ -87,34 +90,33 @@ public class PatientService {
     /**
      * 更新挂号信息
      * 病人可对挂号数据进行更多更改
-     * @param id 根据id查找更新
-     * @param part 可更新内容--科室
-     * @param sick 可更新内容--病名
-     * @param inform 可更新内容--病情描述
      * @return 返回是否更新成功
      */
-    public boolean SickUpdate(int id,String name,int age,String sex,String part,String sick,String inform){
+    public boolean SickUpdate(int id,String P_Name,String D_Name,String AppointmentDate,String AppointmentTime,String HospitalName,String DepartmentName){
         Sick s=sickDao.findById(id);
         if(s==null){
             return false;
         }
-        s.setName(name);
-        s.setAge(age);
-        s.setSex(sex);
-        s.setPart(part);
-        s.setSick(sick);
-        s.setInform(inform);
+        s.setP_name(P_Name);
+        s.setD_name(D_Name);
+        s.setData(AppointmentDate);
+        s.setTime(AppointmentTime);
+        s.setHospitalname(HospitalName);
+        s.setDepartmentname(DepartmentName);
         return sickDao.update(s);
     }
-    public boolean SickAdd(int patientId,String name,int age,String sex,String part,String sick,String inform){
+    public boolean SickAdd(int patientId,String P_Name,String D_Name,String AppointmentDate,String AppointmentTime,String HospitalName,String DepartmentName,String AppointmentStatus,String PaymentStatus,String PaymentAmount){
         Sick s=new Sick();
         s.setPatientId(patientId);
-        s.setName(name);
-        s.setAge(age);
-        s.setSex(sex);
-        s.setPart(part);
-        s.setSick(sick);
-        s.setInform(inform);
+        s.setP_name(P_Name);
+        s.setD_name(D_Name);
+        s.setData(AppointmentDate);
+        s.setTime(AppointmentTime);
+        s.setHospitalname(HospitalName);
+        s.setDepartmentname(DepartmentName);
+        s.setAppointmentstatus(AppointmentStatus);
+        s.setPaymentstatus(PaymentStatus);
+        s.setPaymentamount(PaymentAmount);
         return sickDao.add(s);
     }
     public Sick SickFindById(int id){

@@ -22,11 +22,14 @@ public class DoctorSickUpdateServlet extends HttpServlet {
         /*patientId保持不变*/
         Sick s=doctorService.SickFindById(id);
         /*获取原科室以传给SickShow页面,便于显示医生科室下的病人*/
-        String p=s.getPart();
-        String part=req.getParameter("part");
-        String sick=req.getParameter("sick");
-        String inform=req.getParameter("inform");
-        boolean flag=doctorService.SickUpdate(id,part,sick,inform);
+        String p=s.getDepartmentname();
+        String P_Name=req.getParameter("P_Name");
+        String D_Name=req.getParameter("D_Name");
+        String AppointmentDate=req.getParameter("AppointmentDate");
+        String AppointmentTime=req.getParameter("AppointmentTime");
+        String HospitalName=req.getParameter("HospitalName");
+        String DepartmentName=req.getParameter("DepartmentName");
+        boolean flag=doctorService.SickUpdate(id,P_Name,D_Name,AppointmentDate,AppointmentTime,HospitalName,DepartmentName);
         if(flag){
             resp.getWriter().write("挂号数据更新成功!");
             resp.sendRedirect("DoctorSickShow.jsp?part="+p);
