@@ -6,7 +6,7 @@ import hospital.user.Hospital;
 import java.util.List;
 
 public interface DepartmentDao {
-    public List<Department> findAll();
+    public List<Department> findAll(int id);
     public void delete(int id);
     public Department add(Department department);
     public boolean update(Department department);
