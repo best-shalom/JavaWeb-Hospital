@@ -1,7 +1,13 @@
 package hospital.user;
 
 public class Department {
+
+    private int id;
+
     private int departmentid;
+
+    private int hospitalid;
+
     private String departmentname; // 科室名
 
     private String departmenthead; // 科长
@@ -49,4 +55,19 @@ public class Department {
         this.clinichours = clinichours;
     }
 
+    public int getHospitalid() {
+        return hospitalid;
+    }
+
+    public void setHospitalid(int hospitalid) {
+        this.hospitalid = hospitalid;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

@@ -112,7 +112,7 @@ public class HospitalDaoImpl {
             pt.setString(6,hospital.getTime());
             pt.setString(7,hospital.getStatus());
             pt.setString(8,hospital.getIntroduction());
-            pt.setInt(8,hospital.getId());
+            pt.setInt(9,hospital.getId());
             if(pt.executeUpdate()>0){
                 return true;
             }
