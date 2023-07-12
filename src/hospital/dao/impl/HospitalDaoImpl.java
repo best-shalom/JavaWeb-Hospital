@@ -102,7 +102,7 @@ public class HospitalDaoImpl {
     public boolean update(Hospital hospital) {
         try{
             Connection connection=DbConnection.getConnection();
-            String sql="update patient set HospitalName=?,HospitalLevel=?,HospitalAdress=?,ContactNumber=?,PresidentName=?,EstablishmentDate=?,OperationStatus=?,Introduction=? where HospitalID=?";
+            String sql="update hospital set HospitalName=?,HospitalLevel=?,HospitalAddress=?,ContactNumber=?,PresidentName=?,EstablishmentDate=?,OperationStatus=?,Introduction=? where HospitalID=?";
             PreparedStatement pt=connection.prepareStatement(sql);
             pt.setString(1,hospital.getName());
             pt.setString(2,hospital.getLevel());
@@ -112,12 +112,14 @@ public class HospitalDaoImpl {
             pt.setString(6,hospital.getTime());
             pt.setString(7,hospital.getStatus());
             pt.setString(8,hospital.getIntroduction());
-            pt.setInt(8,hospital.getId());
-            if(pt.executeUpdate()>0){
+            pt.setInt(9,hospital.getId());
+            int result = pt.executeUpdate();
+            if(result>0){
                 return true;
             }
             return false;
         }catch (Exception e){
+            //System.out.println("NO");
             e.printStackTrace();
             return false;
         }
@@ -135,7 +137,7 @@ public class HospitalDaoImpl {
                 hospital.setId(rs.getInt("HospitalID"));
                 hospital.setName(rs.getString("HospitalName"));
                 hospital.setLevel(rs.getString("HospitalLevel"));
-                hospital.setAddress(rs.getString("HospitalAdress"));
+                hospital.setAddress(rs.getString("HospitalAddress"));
                 hospital.setNumber(rs.getString("ContactNumber"));
                 hospital.setPresidentname(rs.getString("PresidentName"));
                 hospital.setTime(rs.getString("EstablishmentDate"));
@@ -143,7 +145,7 @@ public class HospitalDaoImpl {
                 hospital.setIntroduction(rs.getString("Introduction"));
                 return hospital;
             }
-            return null;
+            else {return null;}
         }catch (Exception e){
             e.printStackTrace();
             return null;
