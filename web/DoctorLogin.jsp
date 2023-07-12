@@ -12,8 +12,8 @@
 <form action="DoctorLogin" method="post">
     <table>
         <tr>
-            <td><label for="name">姓名:</label></td>
-            <td><input type="text" name="name" id="name"></td>
+            <td><label for="phone">手机号</label></td>
+            <td><input type="text" name="phone" id="phone"></td>
         </tr>
         <tr>
             <td><label for="password">密码:</label></td>

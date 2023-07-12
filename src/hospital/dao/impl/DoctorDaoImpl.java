@@ -20,19 +20,21 @@ public class DoctorDaoImpl implements DoctorDao {
     public Doctor add(Doctor doctor) {
         try{
             Connection connection= DbConnection.getConnection();
-            String sql="insert into doctor(DoctorName,D_Password,sex,age,phone,hospitalname,departmentname,ProfessionalTitle,introduction) values(?,?,?,?,?,?,?,?,?)";
+            String sql="insert into doctor(DoctorName,HospitalId,DepartmentId,D_Password,sex,age,phone,hospitalname,departmentname,ProfessionalTitle,introduction) values(?,?,?,?,?,?,?,?,?,?,?)";
             //sql语句预处理
             PreparedStatement pt=connection.prepareStatement(sql);
             //将数据放入问号处
             pt.setString(1,doctor.getName());
-            pt.setString(2,doctor.getPassword());
-            pt.setString(3,doctor.getSex());
-            pt.setInt(4,doctor.getAge());
-            pt.setString(5,doctor.getPhone());
-            pt.setString(6,doctor.getPart());
-            pt.setString(7,doctor.getPart2());
-            pt.setString(8,doctor.getPart3());
-            pt.setString(9,doctor.getDiscript());
+            pt.setInt(2,doctor.getHospitalid());
+            pt.setInt(3,doctor.getDepartmentid());
+            pt.setString(4,doctor.getPassword());
+            pt.setString(5,doctor.getSex());
+            pt.setInt(6,doctor.getAge());
+            pt.setString(7,doctor.getPhone());
+            pt.setString(8,doctor.getPart());
+            pt.setString(9,doctor.getPart2());
+            pt.setString(10,doctor.getPart3());
+            pt.setString(11,doctor.getDiscript());
 
             //如果更新量大于零,即操作成功
             if(pt.executeUpdate()>0){
@@ -48,7 +50,7 @@ public class DoctorDaoImpl implements DoctorDao {
                 p.setString(7, doctor.getPart2());
                 p.setString(8, doctor.getPart3());
                 p.setString(9, doctor.getDiscript());
-
+                System.out.println("注册成功");
                 ResultSet rs=p.executeQuery();
                 if(rs.next()){
                     doctor.setId(rs.getInt("DoctorID"));

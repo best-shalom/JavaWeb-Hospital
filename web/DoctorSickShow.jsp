@@ -36,12 +36,12 @@
         for (Sick s:sickList)
         {%>
     <tr>
-        <td><%=s.getName() %>></td>
-        <td><%=s.getAge() %></td>
-        <td><%=s.getSex() %></td>
-        <td><%=s.getPart()%></td>
-        <td><%=s.getSick()%></td>
-        <td><%=s.getInform()%></td>
+        <td><%=s.getD_name() %>></td>
+<%--        <td><%=s.get() %></td>--%>
+<%--        <td><%=s.getSex() %></td>--%>
+<%--        <td><%=s.getPart()%></td>--%>
+<%--        <td><%=s.getSick()%></td>--%>
+<%--        <td><%=s.getInform()%></td>--%>
         <td>
             <%--将此行挂号数据的id传入DoctorSickDelete响应,用于直接删除此行数据并告知这是由doctor传入的--%>
             <a href="SickDelete?id=<%=s.getId()%>&choose=doctor">

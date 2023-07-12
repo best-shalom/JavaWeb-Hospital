@@ -13,6 +13,11 @@ package hospital.user;
 public class Doctor {
     private int id;
     private String name;
+
+
+
+    private int HospitalId;
+    private int DepartmentId;
     private String password;
     private int age;
     private String phone;
@@ -100,4 +105,21 @@ public class Doctor {
     public void setPart(String part) {
         this.part = part;
     }
+    public int getHospitalid() {
+        return HospitalId;
+    }
+
+    public void setHospitalId(int hospitalId) {
+        HospitalId = hospitalId;
+    }
+
+    public int getDepartmentid() {
+        return DepartmentId;
+    }
+
+    public void setDepartmentId(int departmentId) {
+        DepartmentId = departmentId;
+    }
+
+
 }
