@@ -124,9 +124,9 @@
 </div>
 
 <script>
-    function SelectDoctor(UserID, HospitalID, DepartmentID,DockerID) {
+    function SelectDoctor(UserID, HospitalID, DepartmentID,DoctorID) {
         // 在这里进行页面跳转
-        window.location.href = "./PatientSelectTime.jsp?UserID=" + UserID+"&HospitalID=" +HospitalID + "&DepartmentID=" + DepartmentID+"&DockerID="+DockerID;
+        window.location.href = "./PatientSelectTime.jsp?UserID=" + UserID+"&HospitalID=" +HospitalID + "&DepartmentID=" + DepartmentID+"&DoctorID="+DoctorID;
     }
 </script>
 

@@ -54,6 +54,9 @@ public class PatientService {
     public Patient PatientShow(String PhoneNumber){
         return patientDao.find(PhoneNumber);
     }
+    public Patient PatientShow(int UserID){
+        return patientDao.find(UserID);
+    }
 
     public boolean PatientUpdate(int UserID, String Name,String Sex, int Age, String IDCard, String PhoneNumber, String Email, String DateOfBirth){
         Patient patient=patientDao.find(UserID);
@@ -105,10 +108,11 @@ public class PatientService {
         s.setDepartmentname(DepartmentName);
         return sickDao.update(s);
     }
-    public boolean SickAdd(int patientId,String P_Name,String D_Name,String AppointmentDate,String AppointmentTime,String HospitalName,String DepartmentName,String AppointmentStatus,String PaymentStatus,String PaymentAmount){
+    public boolean SickAdd(int patientId,int DoctorId,String P_Name,String D_Name,String AppointmentDate,String AppointmentTime,String HospitalName,String DepartmentName,String AppointmentStatus,String PaymentStatus,String PaymentAmount){
         Sick s=new Sick();
         s.setPatientId(patientId);
         s.setP_name(P_Name);
+        s.setDoctorid(DoctorId);
         s.setD_name(D_Name);
         s.setData(AppointmentDate);
         s.setTime(AppointmentTime);

@@ -126,6 +126,14 @@
         <servlet-name>UpdateHospitalServlet</servlet-name>
         <url-pattern>/UpdateHospital</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>PatientAppointmentServlet</servlet-name>
+        <servlet-class>hospital.servlet.PatientAppointmentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PatientAppointmentServlet</servlet-name>
+        <url-pattern>/PatientAppointment</url-pattern>
+    </servlet-mapping>
     <!--设置启动页为选择页面-->
     <welcome-file-list>
         <welcome-file>Choose.jsp</welcome-file>
