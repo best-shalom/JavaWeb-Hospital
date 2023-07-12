@@ -30,7 +30,7 @@ public class SickDaoImpl implements SickDao {
             pt.setString(7,sick.getDepartmentname());
             pt.setString(8,sick.getAppointmentstatus());
             pt.setString(9,sick.getPaymentstatus());
-            pt.setFloat(10,sick.getPaymentamount());
+            pt.setString(10,sick.getPaymentamount());
             if(pt.executeUpdate()>0){
                 return true;
             }
@@ -73,7 +73,7 @@ public class SickDaoImpl implements SickDao {
             pt.setString(7,sick.getDepartmentname());
             pt.setString(8,sick.getAppointmentstatus());
             pt.setString(9,sick.getPaymentstatus());
-            pt.setFloat(10,sick.getPaymentamount());
+            pt.setString(10,sick.getPaymentamount());
             pt.setInt(11,sick.getId());
             if(pt.executeUpdate()>0){
                 return true;
@@ -105,7 +105,7 @@ public class SickDaoImpl implements SickDao {
                 sick.setDepartmentname(rs.getString("DepartmentName"));
                 sick.setAppointmentstatus(rs.getString("AppointmentStatus"));
                 sick.setPaymentstatus(rs.getString("PaymentStatus"));
-                sick.setPaymentamount(rs.getFloat("PaymentAmount"));
+                sick.setPaymentamount(rs.getString("PaymentAmount"));
                 return sick;
             }
             return null;
@@ -138,7 +138,7 @@ public class SickDaoImpl implements SickDao {
                 sick.setDepartmentname(rs.getString("DepartmentName"));
                 sick.setAppointmentstatus(rs.getString("AppointmentStatus"));
                 sick.setPaymentstatus(rs.getString("PaymentStatus"));
-                sick.setPaymentamount(rs.getFloat("PaymentAmount"));
+                sick.setPaymentamount(rs.getString("PaymentAmount"));
                 result.add(sick);
             }
             return result;
@@ -169,7 +169,7 @@ public class SickDaoImpl implements SickDao {
                 sick.setDepartmentname(rs.getString("DepartmentName"));
                 sick.setAppointmentstatus(rs.getString("AppointmentStatus"));
                 sick.setPaymentstatus(rs.getString("PaymentStatus"));
-                sick.setPaymentamount(rs.getFloat("PaymentAmount"));
+                sick.setPaymentamount(rs.getString("PaymentAmount"));
                 result.add(sick);
             }
             return result;

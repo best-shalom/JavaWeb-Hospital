@@ -24,7 +24,7 @@ public class Sick {
     private String departmentname;
     private String appointmentstatus;
     private String paymentstatus;
-    private float paymentamount;
+    private String paymentamount;
 
     public int getId() {
         return id;
@@ -106,11 +106,11 @@ public class Sick {
         this.paymentstatus = paymentstatus;
     }
 
-    public float getPaymentamount() {
+    public String getPaymentamount() {
         return paymentamount;
     }
 
-    public void setPaymentamount(float paymentamount) {
+    public void setPaymentamount(String paymentamount) {
         this.paymentamount = paymentamount;
     }
 }

@@ -13,48 +13,38 @@
 <body>
 <form action="PatientSickUpdate" method="post">
     <table>
-        <%--第一行:id(使用hidden隐藏传递)--%>
-        <input type="hidden" name="id" value="<%=request.getParameter("id")%>">
-        <%--第二行:姓名--%>
+        <input type="hidden" name="patientId" value="<%=request.getParameter("patientId")%>">
+
         <tr>
-            <td><label for="name">姓名</label> </td>
-            <td><input type="text" name="name" id="name"></td>
+            <td><label for="P_Name">病人姓名</label> </td>
+            <td><input type="text" name="P_Name" id="P_Name"></td>
         </tr>
-        <%--第三行:年龄--%>
+
         <tr>
-            <td><label for="age">年龄</label> </td>
-            <td><input type="text" name="age" id="age"></td>
+            <td><label for="D_Name">医生姓名</label> </td>
+            <td><input type="text" name="D_Name" id="D_Name"></td>
         </tr>
-        <%--第四行:性别--%>
+
         <tr>
-            <td><input type="radio" name="sex" value="男">男</td>
-            <td><input type="radio" name="sex" value="女">女</td>
+            <td><label for="AppointmentDate">预约日期</label> </td>
+            <td><input type="text" name="AppointmentDate" id="AppointmentDate"></td>
         </tr>
-        <%--第五行:科室(设置六个科室可供选择)--%>
+
         <tr>
-            <td>所属科室</td>
-            <td>
-                <select name="part">
-                    <option value="骨肿瘤门诊">骨肿瘤门诊</option>
-                    <option value="老年科门诊">老年科门诊</option>
-                    <option value="精神科门诊">精神科门诊</option>
-                    <option value="普通外科门诊">普通外科门诊</option>
-                    <option value="耳鼻喉科门诊">耳鼻喉科门诊</option>
-                    <option value="儿科门诊">儿科门诊</option>
-                </select>
-            </td>
+            <td><label for="AppointmentTime">预约时间段</label> </td>
+            <td><input type="text" name="AppointmentTime" id="AppointmentTime"></td>
         </tr>
-        <%--第六行:病名--%>
+
         <tr>
-            <td><label for="sick">病名</label></td>
-            <td><input type="text" name="sick" id="sick"></td>
+            <td><label for="HospitalName">医院名</label> </td>
+            <td><input type="text" name="HospitalName" id="HospitalName"></td>
         </tr>
-        <%--第七行:描述--%>
+
         <tr>
-            <td><label>病情描述</label></td>
-            <td><textarea name="inform"></textarea></td>
+            <td><label for="DepartmentName">科室名</label> </td>
+            <td><input type="text" name="DepartmentName" id="DepartmentName"></td>
         </tr>
-        <%--第八行:更新+重置按钮--%>
+
         <tr>
             <td><input type="submit" value="更新"></td>
             <td><input type="reset" value="重置"></td>

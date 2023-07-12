@@ -27,14 +27,14 @@ public class SickDeleteServlet extends HttpServlet {
         /*按sick的id查找sick,便于取出patientId(PatientSickShow)和part(DoctorSickShow)传给SickShow页面*/
         Sick sick=doctorService.SickFindById(id);
         int patientId=sick.getPatientId();
-        String part=sick.getPart();
+        String DepartmentName=sick.getDepartmentname();
         String choose=req.getParameter("choose");
         if(Objects.equals(choose, "doctor")){
             boolean flag=doctorService.SickDelete(id);
             if(flag){
                 resp.getWriter().write("删除成功!");
                 /*用url传参的方式(因为SickShow中获取参数的方式是getParameter)*/
-                resp.sendRedirect("DoctorSickShow.jsp?part="+part);
+                resp.sendRedirect("DoctorSickShow.jsp?part="+DepartmentName);
             }
             else{
                 resp.getWriter().write("删除失败!");

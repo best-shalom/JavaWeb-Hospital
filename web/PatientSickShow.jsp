@@ -15,14 +15,15 @@
 <body>
 <table border="1">
     <tr>
-        <th>姓名</th>
-        <th>年龄</th>
-        <th>性别</th>
-        <th>科室</th>
-        <th>病名</th>
-        <th>描述</th>
-        <th>删除</th>
-        <th>更新</th>
+        <th>病人姓名</th>
+        <th>主治医生</th>
+        <th>预约日期</th>
+        <th>预约时间段</th>
+        <th>医院名</th>
+        <th>科室名</th>
+        <th>预约状态</th>
+        <th>支付状态</th>
+        <th>支付金额</th>
     </tr>
     <%
         PatientService patientService=new PatientService();
@@ -35,12 +36,15 @@
         List<Sick> sickList=patientService.SickShow(patientId);
         for (Sick s:sickList) {%>
     <tr>
-        <td><%=s.getName() %>></td>
-        <td><%=s.getAge() %></td>
-        <td><%=s.getSex() %></td>
-        <td><%=s.getPart()%></td>
-        <td><%=s.getSick()%></td>
-        <td><%=s.getInform()%></td>
+        <td><%=s.getP_name() %>></td>
+        <td><%=s.getD_name() %></td>
+        <td><%=s.getData() %></td>
+        <td><%=s.getTime()%></td>
+        <td><%=s.getHospitalname()%></td>
+        <td><%=s.getDepartmentname()%></td>
+        <td><%=s.getAppointmentstatus()%></td>
+        <td><%=s.getPaymentstatus()%></td>
+        <td><%=s.getPaymentamount()%></td>
         <td>
             <%--将此行挂号数据的id传入SickDelete响应,用于直接删除此行数据--%>
             <a href="SickDelete?id=<%=s.getId()%>&choose=patient">
