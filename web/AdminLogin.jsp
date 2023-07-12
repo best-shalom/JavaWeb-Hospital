@@ -3,8 +3,12 @@
 <html>
 <head>
   <title>管理员登录</title>
+  <link rel="stylesheet" href="./css/login.css">
 </head>
 <body>
+<div class="top-bar">
+  <div class="login-page">登录页面</div>
+</div>
 <form action="AdminLogin" method="post">
   <table>
     <%--第一行:id--%>
@@ -24,5 +28,6 @@
     </tr>
   </table>
 </form>
+<div class="bottom-bar"></div>
 </body>
 </html>
