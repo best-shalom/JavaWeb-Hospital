@@ -40,8 +40,13 @@
             document.getElementById("validationCode_img").src = "generateCaptcha.jsp?time=" + new Date().getTime();
         }
     </script>
+
+    <link rel="stylesheet" href="./css/login.css">
 </head>
 <body>
+<div class="top-bar">
+    <div class="login-page">登录页面</div>
+</div>
 <form action="PatientLogin" method="post">
     <table>
         <!-- First row: Phone number -->
@@ -74,7 +79,7 @@
 <a href="PatientRegister.jsp">
     <input type="button" value="注册">
 </a>
-
+<div class="bottom-bar"></div>
 <!-- Check if there is a login error message from the backend and show password error alert -->
 <% if (request.getAttribute("Errormessage") != null) { %>
 <script>

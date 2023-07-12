@@ -1,0 +1,105 @@
+/* 设置顶部横条的样式 */
+.top-bar {
+    background-color: #409eff;
+    height: 50px;
+    width: 100%;
+    text-align: center; /* 居中文本 */
+    position: fixed; /* 固定定位 */
+    top: 0; /* 距离顶部的距离为0 */
+    left: 0; /* 距离左侧的距离为0 */
+}
+
+/* 登录页面样式 */
+.login-page {
+    font-weight: bold; /* 加粗文本 */
+    color:white;
+    padding-top:15px;
+}
+
+/* 底部横条样式 */
+.bottom-bar {
+    background-color: #bbbbbb;
+    height: 50px;
+    position: fixed; /* 使用固定定位 */
+    bottom: 0; /* 将元素置于底部 */
+    left: 0; /* 如果您希望水平贴紧，则设置为 0 */
+    width: 100%; /* 跨越整个页面宽度 */
+    margin: 0; /* 去除默认的外边距 */
+    padding: 0; /* 去除默认的内边距 */
+}
+
+body {
+    font-size: 18px;
+    color: black;
+    font-family: 'Helvetica Neue',Helvetica,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',SimSun,sans-serif;
+}
+/* 表单样式 */
+form {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    height: 100vh; /* 充满整个视口高度 */
+}
+
+table {
+    width: 300px;
+    border: 1px solid lightgray; /* 边框 */
+    background-color: whitesmoke; /* 浅灰色背景 */
+    border-radius: 5px; /* 圆角边框 */
+    padding: 20px 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); /* 悬浮效果（阴影） */
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 180px;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+input[type="text"]:hover,
+input[type="password"]:hover {
+    border-color: #409eff;
+}
+input[type="text"]:focus,
+input[type="password"]:focus {
+    outline: none;
+}
+
+input[type="submit"]
+{
+    height:35px;
+    margin: 10px 60%;
+    padding: 8px 18px;
+    background-color: #409eff; /* 按钮颜色 */
+    color: white; /* 文字颜色 */
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+input[type="submit"]:hover {
+    background-color: #66b1ff; /* 悬浮效果（按钮颜色） */
+}
+input[type="reset"]
+{
+    height:35px;
+    margin: 10px 35%;
+    padding: 8px 18px;
+    background-color: white; /* 按钮颜色 */
+    color: black; /* 文字颜色 */
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+input[type="reset"]:hover {
+    background-color: rgb(236, 245, 255); /* 悬浮效果（按钮颜色） */
+    color : rgb(92, 158, 255);
+}
+
+
+a {
+    text-decoration: underline;
+}
