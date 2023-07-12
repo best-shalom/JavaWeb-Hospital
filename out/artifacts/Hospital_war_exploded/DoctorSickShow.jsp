@@ -179,9 +179,9 @@
 <div>
     <!-- 导航栏 -->
     <ul class="navbar">
-        <li><a href="./AdminCenter.jsp">首页</a></li>
-        <li><a href="./AdminUsers.jsp">用户管理</a></li>
-        <li><a href="./AdminHospitals.jsp">医院管理</a></li>
+<%--        <li><a href="./AdminCenter.jsp">首页</a></li>--%>
+<%--        <li><a href="./AdminUsers.jsp">用户管理</a></li>--%>
+<%--        <li><a href="./AdminHospitals.jsp">医院管理</a></li>--%>
         <!-- 添加更多功能模块链接 -->
     </ul>
 </div>
