@@ -9,25 +9,30 @@
 <html>
 <head>
     <title>更新个人信息</title>
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/update.css">
 </head>
 <body>
+<div class="top-bar">
+    <div class="login-page">更新页面</div>
+</div>
 <form action="DoctorUpdate" method="post">
     <table>
         <%--将从医生主页传来的id隐藏传入UpdateServlet--%>
         <input type="hidden" name="id" value="<%=request.getParameter("id")%>">
         <%--第一行:姓名--%>
         <tr>
-            <td><label for="name">姓名</label> </td>
+            <td><label for="name">姓名</label></td>
             <td><input type="text" name="name" id="name"></td>
         </tr>
         <%--第二行:密码--%>
         <tr>
-            <td><label for="password">密码</label> </td>
+            <td><label for="password">密码</label></td>
             <td><input type="password" name="password" id="password"></td>
         </tr>
         <%--第三行:年龄--%>
         <tr>
-            <td><label for="age">年龄</label> </td>
+            <td><label for="age">年龄</label></td>
             <td><input type="text" name="age" id="age"></td>
         </tr>
         <%--第四行:性别--%>
@@ -55,6 +60,8 @@
             <td><input type="reset" value="重置"></td>
         </tr>
     </table>
+
+    <div class="bottom-bar"></div>
 </form>
 </body>
 </html>
