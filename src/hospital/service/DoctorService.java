@@ -1,6 +1,8 @@
 package hospital.service;
 
+import hospital.dao.impl.DepartmentDaoimpl;
 import hospital.dao.impl.DoctorDaoImpl;
+import hospital.dao.impl.HospitalDaoImpl;
 import hospital.dao.impl.SickDaoImpl;
 import hospital.user.Doctor;
 import hospital.user.Sick;
@@ -38,6 +40,10 @@ public class DoctorService {
                                  String phone, String part, String part2, String part3, String discript){
         Doctor doctor=new Doctor();
         doctor.setName(name);
+        DepartmentDaoimpl departmentdaoimpl = new DepartmentDaoimpl();
+        HospitalDaoImpl hospitalDaoImpl = new HospitalDaoImpl();
+        doctor.setHospitalid(hospitalDaoImpl.find(part));
+        doctor.setDepartmentid(departmentdaoimpl.find(part2));
         doctor.setPassword(password);
         doctor.setSex(sex);
         doctor.setAge(age);
@@ -59,6 +65,10 @@ public class DoctorService {
         return doctorDao.find(phone);
     }
 
+    public Doctor DoctorShow(int id){
+        return doctorDao.find(id);
+    }
+
     public boolean DoctorUpdate(String phone,String name,String password,int age,String sex,String part){
         Doctor doctor=doctorDao.find(phone);
         if(doctor==null){
@@ -74,11 +84,10 @@ public class DoctorService {
 
     /**
      * 显示相同科室的病人数据
-     * @param part 所属科室(由医生主页传入)
      * @return 返回该科室的病人数据
      */
-    public List<Sick> SickShow(String part){
-        return sickDao.find(part);
+    public List<Sick> SickShow(int id){
+        return sickDao.docfind(id);
     }
 
     public boolean SickDelete(int id){

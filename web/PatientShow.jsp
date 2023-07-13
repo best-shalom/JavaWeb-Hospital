@@ -30,7 +30,8 @@
     <ul class="navbar">
         <li><a href="./PatientCenter.jsp?UserID=<%= UserID %>">首页</a></li>
         <li><a href="./PatientShow.jsp?UserID=<%= UserID %>">个人信息</a></li>
-        <li><a href="./PatientSelectHospital.jsp?UserID=<%= UserID %>">挂号</a></li>
+        <li><a href="./PatientSelectHospital.jsp?UserID=<%= UserID %>">预约挂号</a></li>
+        <li><a href="./PatientSickShow.jsp.jsp?UserID=<%= UserID %>">查看挂号信息</a></li>
     </ul>
 </div>
 
@@ -46,6 +47,7 @@
                 <th>电话号码</th>
                 <th>邮箱地址</th>
                 <th>出生日期</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -60,17 +62,21 @@
                 <td><%= patient.getPhoneNumber() %></td>
                 <td><%= patient.getEmail() %></td>
                 <td><%= patient.getDateOfBirth() %></td>
+                <td>
+                <a href="PatientUpdate.jsp?UserID=<%= UserID %>">
+                    <input type="button" value="修改">
+                </a>
+                </td>
             </tr>
             </tbody>
         </table>
     </div>
-
 </div>
-<a href="PatientUpdate.jsp?UserID=<%= UserID %>">
-    <input type="button" value="修改个人信息">
-</a>
-<a href="PatientSickShow.jsp?UserID=<%= UserID %>">
-    <input type="button" value="挂号信息">
-</a>
+
+<% if (request.getAttribute("Errormessage") != null) { %>
+<script>
+    showMessage("<%= request.getAttribute("Errormessage") %>");
+</script>
+<% } %>
 </body>
 </html>

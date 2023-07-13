@@ -9,8 +9,13 @@
 <html>
 <head>
     <title>更新个人信息</title>
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/update.css">
 </head>
 <body>
+<div class="top-bar">
+    <div class="login-page">更新页面</div>
+</div>
 <form action="PatientUpdate" method="post">
     <table>
         <%--第一行:姓名--%>
@@ -37,7 +42,7 @@
         </tr>
         <%--第七行:身份证号码--%>
         <tr>
-            <td><label for="idCard">身份证号码</label> </td>
+            <td><label for="idCard" >身份证号码</label> </td>
             <td><input type="text" name="idCard" id="idCard"></td>
         </tr>
         <%--第八行:出生年月--%>
@@ -57,5 +62,7 @@
         </tr>
     </table>
 </form>
+
+<div class="bottom-bar"></div>
 </body>
 </html>

@@ -152,4 +152,22 @@ public class HospitalDaoImpl {
         }
     }
 
+    public int find(String HospitalName) {
+        try{
+            Connection connection=DbConnection.getConnection();
+            String sql="select * from hospital where hospitalName=?";
+            PreparedStatement pt=connection.prepareStatement(sql);
+            pt.setString(1,HospitalName);
+            ResultSet rs=pt.executeQuery();
+            Hospital hospital=new Hospital();
+            if(rs.next()){
+                return rs.getInt("HospitalID");
+            }
+            else {return -1;}
+        }catch (Exception e){
+            e.printStackTrace();
+            return -1;
+        }
+    }
+
 }

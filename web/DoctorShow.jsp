@@ -1,17 +1,20 @@
-<%@ page import="javax.print.Doc" %>
-<%@ page import="hospital.service.DoctorService" %>
-<%@ page import="hospital.user.Doctor" %><%--
-  Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2021/11/20
-  Time: 10:53
-  To change this template use File | Settings | File Templates.
---%>
+<%--将doctor的id传给Update--%>
+<%--<a href="DoctorUpdate.jsp?phone=<%=phone%>">--%>
+<%--    <input type="button" value="修改个人信息">--%>
+<%--</a>--%>
+<%--&lt;%&ndash;将doctor所属科室传给DoctorSickShow&ndash;%&gt;--%>
+<%--<a href="DoctorSickShow.jsp?part=<%=part%>">--%>
+<%--    <input type="button" value="病人数据">--%>
+<%--</a>--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="hospital.service.DoctorService" %>
+<%@ page import="hospital.user.Doctor" %>
+
 <html>
 <head>
     <title>医生主页</title>
     <link rel="stylesheet" href="css/dockershow.css">
+
 </head>
 <body>
 
@@ -107,5 +110,5 @@
 
 
 <div class="bottom-bar"></div>
+
 </body>
-</html>

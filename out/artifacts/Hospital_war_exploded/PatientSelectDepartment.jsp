@@ -19,58 +19,17 @@
 <html>
 <head>
     <title>用户首页</title>
-    <style>
-        ul.navbar {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            background-color: #f1f1f1;
-            overflow: hidden;
-        }
-
-        ul.navbar li {
-            float: left;
-        }
-
-        ul.navbar li a {
-            display: block;
-            color: black;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-
-        ul.navbar li a:hover:not(.active) {
-            background-color: #ddd;
-        }
-
-        .active {
-            background-color: #4CAF50;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th, td {
-            padding: 8px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/patientshow.css">
 </head>
 <body>
 <h1>桂林市医院统一预约挂号服务平台</h1>
 <div>
     <!-- 导航栏 -->
     <ul class="navbar">
-        <li><a href="./PatientCenter.jsp?UserID=<%=UserID%>">首页</a></li>
-        <li><a href="./PatientShow.jsp?UserID=<%=UserID%>">个人信息</a></li>
-        <li><a href="./PatientSelectHospital.jsp?UserID=<%=UserID%>">挂号</a></li>
+        <li><a href="./PatientCenter.jsp?UserID=<%= UserID %>">首页</a></li>
+        <li><a href="./PatientShow.jsp?UserID=<%= UserID %>">个人信息</a></li>
+        <li><a href="./PatientSelectHospital.jsp?UserID=<%= UserID %>">预约挂号</a></li>
+        <li><a href="./PatientSickShow.jsp.jsp?UserID=<%= UserID %>">查看挂号信息</a></li>
     </ul>
 </div>
 
@@ -122,7 +81,7 @@
 <script>
     function SelectDoctor(UserID, HospitalID, DepartmentID) {
         // 在这里进行页面跳转
-        window.location.href = "./PatientSelectDepartment.jsp?UserID=" + UserID + "&HospitalID=" + HospitalID + "&DepartmentID=" + DepartmentID;
+        window.location.href = "./PatientSelectDoctor.jsp?UserID=" + UserID + "&HospitalID=" + HospitalID + "&DepartmentID=" + DepartmentID;
     }
 </script>
 

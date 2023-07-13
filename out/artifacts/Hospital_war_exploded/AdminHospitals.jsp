@@ -11,54 +11,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <title>管理员首页</title>
+  <title>医院管理</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- 引入一个js文件 -->
   <script src="js/Hospital.js"></script>
-  <style>
-    ul.navbar {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      background-color: #f1f1f1;
-      overflow: hidden;
-    }
-
-    ul.navbar li {
-      float: left;
-    }
-
-    ul.navbar li a {
-      display: block;
-      color: black;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-    }
-
-    ul.navbar li a:hover:not(.active) {
-      background-color: #ddd;
-    }
-
-    .active {
-      background-color: #4CAF50;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    th, td {
-      padding: 8px;
-      text-align: left;
-      border-bottom: 1px solid #ddd;
-    }
-
-    th {
-      background-color: #f2f2f2;
-    }
-  </style>
+  <link rel="stylesheet" href="./css/guahao.css">
 </head>
 <body>
 <h1>桂林市医院统一预约挂号服务平台</h1>
@@ -102,7 +60,9 @@
       <tbody>
       <%for (Hospital hospital : hospitalList) { %>
       <tr>
-        <td><%= hospital.getName() %></td>
+        <td>
+          <a href="AdminDepartment.jsp?hospitalId=<%= hospital.getId() %>"> <%= hospital.getName() %> </a>
+        </td>
         <td><%= hospital.getLevel() %></td>
         <td><%= hospital.getAddress() %></td>
         <td><%= hospital.getNumber() %></td>

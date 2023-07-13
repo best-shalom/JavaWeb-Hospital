@@ -23,6 +23,7 @@ public class DepartmentDaoimpl {
 
             while (rs.next()) {
                 Department department = new Department();
+                department.setId(rs.getInt(1));
                 department.setHospitalid(rs.getInt(2));
                 department.setDepartmentid(rs.getInt(3));
                 department.setDepartmentname(rs.getString(4));
@@ -35,6 +36,7 @@ public class DepartmentDaoimpl {
             if (departmentList == null) {
                 System.out.println("no");
             }
+            System.out.println("YES");
             return departmentList;
         } catch (Exception e) {
             System.out.println("NO");
@@ -97,16 +99,18 @@ public class DepartmentDaoimpl {
     public boolean update(Department department) {
         try{
             Connection connection=DbConnection.getConnection();
-            String sql="update hosdep set hospitalid=? and departmentid=? and departmentname=? and DepartmentHead=? and introduction=? and ClinicHours=? where ID=?";
+            String sql="update hosdep set hospitalid=? , departmentid=? , departmentname=? , DepartmentHead=?  ,introduction=? , ClinicHours=? where ID=?";
             PreparedStatement pt=connection.prepareStatement(sql);
+
             pt.setInt(1,department.getHospitalid());
             pt.setInt(2,department.getDepartmentid());
             pt.setString(3,department.getDepartmentname());
             pt.setString(4,department.getDepartmenthead());
             pt.setString(5,department.getIntroduction());
             pt.setString(6,department.getClinichours());
-            pt.setString(7,department.getClinichours());
-            if(pt.executeUpdate()>0){
+            pt.setInt(7,department.getId());
+            int result = pt.executeUpdate();
+            if(result>0){
                 return true;
             }
             return false;
@@ -130,14 +134,33 @@ public class DepartmentDaoimpl {
                 department.setDepartmentid(rs.getInt("departmentid"));
                 department.setDepartmentname(rs.getString("departmentname"));
                 department.setDepartmenthead(rs.getString("DepartmentHead"));
-                department.setIntroduction(rs.getString("introduction"));
-                department.setIntroduction(rs.getString("ClinicHours"));
+                department.setIntroduction(rs.getString("Introduction"));
+                department.setClinichours(rs.getString("ClinicHours"));
                 return department;
             }
             return null;
         }catch (Exception e){
             e.printStackTrace();
             return null;
+        }
+    }
+
+    public int find(String DepartmentName) {
+        try{
+            Connection connection=DbConnection.getConnection();
+            String sql="select * from department where DepartmentName=?";
+            PreparedStatement pt=connection.prepareStatement(sql);
+            pt.setString(1,DepartmentName);
+            ResultSet rs=pt.executeQuery();
+            int DepartmentID=0;
+            if(rs.next()){
+                DepartmentID= rs.getInt("DepartmentID");
+                return DepartmentID;
+            }
+            return -1;
+        }catch (Exception e){
+            e.printStackTrace();
+            return -1;
         }
     }
 }

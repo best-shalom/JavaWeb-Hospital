@@ -12,6 +12,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="hospital.dao.impl.DoctorDaoImpl" %>
 <%@ page import="hospital.user.Doctor" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -23,9 +24,10 @@
 <div>
     <!-- 导航栏 -->
     <ul class="navbar">
-        <li><a href="./PatientCenter.jsp?UserID=<%=UserID%>">首页</a></li>
-        <li><a href="./PatientShow.jsp?UserID=<%=UserID%>">个人信息</a></li>
-        <li><a href="./PatientSelectHospital.jsp?UserID=<%=UserID%>">挂号</a></li>
+        <li><a href="./PatientCenter.jsp?UserID=<%= UserID %>">首页</a></li>
+        <li><a href="./PatientShow.jsp?UserID=<%= UserID %>">个人信息</a></li>
+        <li><a href="./PatientSelectHospital.jsp?UserID=<%= UserID %>">预约挂号</a></li>
+        <li><a href="./PatientSickShow.jsp?UserID=<%= UserID %>">查看挂号信息</a></li>
     </ul>
 </div>
 
@@ -34,27 +36,26 @@
     <%
         DoctorDaoImpl doctordaoimpl = new DoctorDaoImpl();
         List<Doctor> doctordaoList = null;
-//        try {
-//            doctordaoList = doctordaoimpl.findAll(HospitalId,DepartmentName); // 调用 findAll() 函数获取全部用户信息
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        assert doctordaoList != null;
+        try {
+            doctordaoList = doctordaoimpl.findAll(HospitalID,DepartmentID); // 调用 findAll() 函数获取全部用户信息
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        assert doctordaoList != null;
     %>
     <div>
         <table>
             <thead>
             <tr>
-                <th>DoctorID</th>
-                <th>DoctorName</th>
-                <th>D_Password</th>
-                <th>sex</th>
-                <th>age</th>
-                <th>phone</th>
-                <th>hospital</th>
-                <th>DepartmentName</th>
-                <th>ProfessionalTitle</th>
-                <th>introduction</th>
+                <th>医生编号</th>
+                <th>医生姓名</th>
+                <th>医生性别</th>
+                <th>医生年龄</th>
+                <th>医生年龄</th>
+                <th>医生所属医院</th>
+                <th>医生所属科室</th>
+                <th>职称</th>
+                <th>介绍</th>
                 <th></th>
             </tr>
             </thead>
@@ -63,7 +64,6 @@
             <tr>
                 <td><%=doctor.getId() %></td>
                 <td><%=doctor.getName() %>></td>
-                <td><%=doctor.getPassword() %></td>
                 <td><%=doctor.getSex() %></td>
                 <td><%=doctor.getAge()%></td>
                 <td><%=doctor.getPhone()%></td>
@@ -82,9 +82,9 @@
 </div>
 
 <script>
-    function SelectDoctor(UserID, HospitalID, DepartmentID,DockerID) {
+    function SelectDoctor(UserID, HospitalID, DepartmentID,DoctorID) {
         // 在这里进行页面跳转
-        window.location.href = "./PatientSelectDepartment.jsp?UserID=" + UserID+"&HospitalID=" +HospitalID + "&DepartmentID=" + DepartmentID+"&DockerID="+DockerID;
+        window.location.href = "./PatientSelectTime.jsp?UserID=" + UserID+"&HospitalID=" +HospitalID + "&DepartmentID=" + DepartmentID+"&DoctorID="+DoctorID;
     }
 </script>
 

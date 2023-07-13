@@ -15,29 +15,21 @@ import java.io.IOException;
  */
 public class PatientSickUpdateServlet extends HttpServlet {
     PatientService patientService=new PatientService();
-
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int id= Integer.parseInt(req.getParameter("id"));
-        /*patientId保持不变*/
-        Sick s=patientService.SickFindById(id);
-
-        /*获取patientId以传给SickShow页面*/
-        int patientId=s.getPatientId();
-        String P_Name=req.getParameter("P_Name");
-        String D_Name=req.getParameter("D_Name");
+        int AppointmentID= Integer.parseInt(req.getParameter("AppointmentID"));
+        int UserID=Integer.parseInt(req.getParameter("UserID"));
         String AppointmentDate=req.getParameter("AppointmentDate");
         String AppointmentTime=req.getParameter("AppointmentTime");
-        String HospitalName=req.getParameter("HospitalName");
-        String DepartmentName=req.getParameter("DepartmentName");
-        boolean flag=patientService.SickUpdate(id,P_Name,D_Name,AppointmentDate,AppointmentTime,HospitalName,DepartmentName);
+        boolean flag=patientService.SickUpdate(AppointmentID,AppointmentDate,AppointmentTime);
         if(flag){
-            resp.getWriter().write("挂号数据更新成功!");
-            resp.sendRedirect("PatientSickShow.jsp?id="+patientId);
+            req.setAttribute("Errormessage", "挂号数据更新成功!");
+            req.setAttribute("UserID", UserID);
+            req.getRequestDispatcher("PatientCenter.jsp").forward(req, resp);
         }
         else {
-            resp.getWriter().write("挂号数据更新失败!");
-            resp.sendRedirect("Error.jsp");
+            req.setAttribute("Errormessage", "挂号数据更新失败!");
+            req.getRequestDispatcher("PatientCenter.jsp").forward(req, resp);
         }
     }
 }
