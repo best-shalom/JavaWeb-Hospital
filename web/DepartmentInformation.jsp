@@ -51,13 +51,15 @@
 <div>
   <h1>科室管理</h1>
   <%
-    int D_id = Integer.parseInt(request.getParameter("D_Id"));
+    int hospitalId = Integer.parseInt(request.getParameter("hospitalId"));
+    int departmentId = Integer.parseInt(request.getParameter("departmentId"));
     DepartmentDaoimpl departmentdaoimpl = new DepartmentDaoimpl();
     Department department;
-    department = departmentdaoimpl.find(D_id);
+    department = departmentdaoimpl.find(departmentId);
   %>
   <div>
     <form action="UpdateDepartment" method="POST"> <!-- 替换 /updateHospital 为你想要处理更新请求的 URL -->
+      <input type="hidden" name="hospitalId" value="<%= hospitalId %>">
       <input type="hidden" name="D_Id" value="<%= department.getId()%>">
       <label>科室名称:</label>
       <input type="text" name="name" value="<%= department.getDepartmentname() %>"><br><br>

@@ -14,6 +14,7 @@ public class UpdateDepartmentServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        int hospitalId = Integer.parseInt(request.getParameter("hospitalId"));
         int id = Integer.parseInt(request.getParameter("D_Id"));
         System.out.println(id);
         String name = request.getParameter("name");
@@ -37,12 +38,12 @@ public class UpdateDepartmentServlet extends HttpServlet {
         if (success) {
             out.println("<script>");
             out.println("alert('科室信息已成功更新！');");
-            out.println("window.location.href='./AdminDepartment.jsp';"); // 更新成功后重定向到科室管理页面
+            out.println("window.location.href='./AdminDepartment.jsp?hospitalId=" + hospitalId + "';"); // 更新成功后重定向到科室管理页面
             out.println("</script>");
         } else {
             out.println("<script>");
             out.println("alert('科室信息更新失败，请重试！');");
-            out.println("window.location.href='./AdminDepartment.jsp';"); // 更新失败后重定向到科室管理页面
+            out.println("window.location.href='./AdminDepartment.jsp?hospitalId=" + hospitalId + "';"); // 更新失败后重定向到科室管理页面
             out.println("</script>");
         }
 

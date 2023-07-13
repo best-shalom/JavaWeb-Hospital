@@ -77,8 +77,9 @@
         <%
     DepartmentDaoimpl departmentdaoimpl = new DepartmentDaoimpl();
     List<Department> departmentList = null;
+    int id = -1;
     try {
-        int id = Integer.parseInt(request.getParameter("hospitalId"));
+        id = Integer.parseInt(request.getParameter("hospitalId"));
         departmentList = departmentdaoimpl.findAll(id); // 调用 findAll() 函数获取全部用户信息
     } catch (Exception e) {
       e.printStackTrace();
@@ -105,10 +106,11 @@
                 <td><%= department.getClinichours() %></td>
                 <td>
                     <label>
-                        <input type="text" name="D_Id" value="<%=department.getId()%>">
+                        <input type="hidden" name="departmentId" value="<%=department.getId()%>">
+                        <input type="hidden" name="hospitalId" value="<%=id%>">
                     </label>
-                    <button class="button" type="submit" onclick="DeleteDepartment(<%=department.getId()%>); return false;">删除科室</button>
-                    <button class="button" type="submit" onclick="ReviseDepartment(<%=department.getId()%>); return false;">修改信息</button>
+                    <button class="button" type="submit" onclick="DeleteDepartment('<%=id%>','<%=department.getId()%>'); return false;">删除科室</button>
+                    <button class="button" type="submit" onclick="ReviseDepartment('<%=id%>', '<%=department.getId()%>'); return false;">修改信息</button>
                 </td>
             </tr>
             <% } %>
