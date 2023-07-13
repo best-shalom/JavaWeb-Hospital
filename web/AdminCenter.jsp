@@ -9,7 +9,7 @@
 <html>
 <head>
   <title>管理员首页</title>
-  <link rel="stylesheet" href="./css/guahao.css">
+  <link rel="stylesheet" href="css/navbar.css">
 </head>
 <body>
 <h1>桂林市医院统一预约挂号服务平台</h1>

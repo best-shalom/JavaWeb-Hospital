@@ -11,7 +11,7 @@
 <html>
 <head>
     <title>医生主页</title>
-    <link rel="stylesheet" href="./css/show.css">
+    <link rel="stylesheet" href="css/dockershow.css">
 </head>
 <body>
 

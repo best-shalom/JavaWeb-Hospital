@@ -11,31 +11,8 @@
 <html>
 <head>
   <title>修改医院信息</title>
-  <style>
-    ul.navbar {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      background-color: #f1f1f1;
-      overflow: hidden;
-    }
-
-    ul.navbar li {
-      float: left;
-    }
-
-    ul.navbar li a {
-      display: block;
-      color: black;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-    }
-
-    ul.navbar li a:hover:not(.active) {
-      background-color: #ddd;
-    }
-  </style>
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/patientform.css">
 </head>
 <body>
 <h1>桂林市医院统一预约挂号服务平台</h1>
@@ -56,7 +33,7 @@
     Hospital hospital;
     hospital = hospitaldaoimpl.find(id);
   %>
-  <div>
+  <div class="center-form">
     <form action="UpdateHospital" method="POST"> <!-- 替换 /updateHospital 为你想要处理更新请求的 URL -->
       <input type="hidden" name="Id" value="<%= hospital.getId()%>">
       <label>医院名称:</label>

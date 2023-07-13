@@ -16,7 +16,7 @@
 <html>
 <head>
     <title>用户首页</title>
-    <link rel="stylesheet" href="./css/patientshow.css">
+    <link rel="stylesheet" href="css/navbar.css">
 </head>
 <body>
 <h1>桂林市医院统一预约挂号服务平台</h1>
@@ -70,9 +70,8 @@
                 <td><%=doctor.getPart() %></td>
                 <td><%=doctor.getPart2() %></td>
                 <td><%=doctor.getPart3()%></td>
-                <td><%=doctor.getDiscript()%></td>
+                <td><span class="introduction"><%=doctor.getDiscript()%></span></td>
                 <td>
-                    </label>
                     <button class="button" type="submit" onclick="SelectDoctor(<%=UserID%>,<%=HospitalID%>,<%=DepartmentID%>,<%=doctor.getId()%>); return false;">选择该科室</button>
                 </td>
             </tr>

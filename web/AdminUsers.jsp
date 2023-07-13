@@ -17,7 +17,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- 引入一个js文件 -->
   <script src="js/Patient.js"></script>
-  <link rel="stylesheet" href="./css/guahao.css">
+  <link rel="stylesheet" href="css/navbar.css">
 </head>
 <body>
 <h1>桂林市医院统一预约挂号服务平台</h1>

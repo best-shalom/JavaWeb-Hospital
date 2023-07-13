@@ -69,3 +69,21 @@ input[type="button"] {
 input[type="button"]:hover {
     background-color: #45a049;
 }
+
+.welcome {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    background-color: #f6f6f6;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.introduction {
+    white-space: nowrap; /* 禁止换行 */
+    overflow: hidden; /* 隐藏溢出的文本 */
+    text-overflow: ellipsis; /* 用省略号代替溢出的文本 */
+    max-width: 200px; /* 指定最大宽度 */
+}
