@@ -12,7 +12,7 @@
 <head>
   <title>修改医院信息</title>
   <link rel="stylesheet" href="css/navbar.css">
-  <link rel="stylesheet" href="css/patientform.css">
+  <link rel="stylesheet" href="css/thead.css">
 </head>
 <body>
 <h1>桂林市医院统一预约挂号服务平台</h1>

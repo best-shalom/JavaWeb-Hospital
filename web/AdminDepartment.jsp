@@ -16,49 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- 引入一个js文件 -->
     <script src="js/Department.js"></script>
-    <style>
-        ul.navbar {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            background-color: #f1f1f1;
-            overflow: hidden;
-        }
-
-        ul.navbar li {
-            float: left;
-        }
-
-        ul.navbar li a {
-            display: block;
-            color: black;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-
-        ul.navbar li a:hover:not(.active) {
-            background-color: #ddd;
-        }
-
-        .active {
-            background-color: #4CAF50;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th, td {
-            padding: 8px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-    </style>
+    <link rel="stylesheet" href="css/navbar.css">
 </head>
 <body>
 <h1>桂林市医院统一预约挂号服务平台</h1>
