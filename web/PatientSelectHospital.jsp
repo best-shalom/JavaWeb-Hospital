@@ -14,49 +14,7 @@
 <html>
 <head>
   <title>用户首页</title>
-  <style>
-    ul.navbar {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      background-color: #f1f1f1;
-      overflow: hidden;
-    }
-
-    ul.navbar li {
-      float: left;
-    }
-
-    ul.navbar li a {
-      display: block;
-      color: black;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-    }
-
-    ul.navbar li a:hover:not(.active) {
-      background-color: #ddd;
-    }
-
-    .active {
-      background-color: #4CAF50;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    th, td {
-      padding: 8px;
-      text-align: left;
-      border-bottom: 1px solid #ddd;
-    }
-
-    th {
-      background-color: #f2f2f2;
-    }
-  </style>
+  <link rel="stylesheet" href="./css/patientshow.css">
 </head>
 <body>
 <h1>桂林市医院统一预约挂号服务平台</h1>
@@ -85,12 +43,12 @@
     <table>
       <thead>
       <tr>
-        <th>用户名</th>
-        <th>性别</th>
-        <th>年龄</th>
-        <th>电话号码</th>
-        <th>邮箱地址</th>
-        <th>出生日期</th>
+        <th>医院名</th>
+        <th>医院等级</th>
+        <th>医院地址</th>
+        <th>联系方式</th>
+        <th>院长姓名</th>
+        <th>营业时间</th>
         <th>运营状态</th>
         <th>介绍</th>
         <th></th>

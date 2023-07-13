@@ -126,6 +126,35 @@ public class DoctorDaoImpl implements DoctorDao {
         }
     }
 
+    public Doctor find(int DoctorID) {
+        try {
+            Connection connection = DbConnection.getConnection();
+            String sql = "select * from doctor where DoctorID=?";
+            PreparedStatement pt = connection.prepareStatement(sql);
+            pt.setInt(1, DoctorID);
+            ResultSet rs = pt.executeQuery();
+            Doctor doctor = new Doctor();
+            if (rs.next()) {
+                doctor.setId(rs.getInt("DoctorID"));
+                doctor.setName(rs.getString("DoctorName"));
+                doctor.setPassword(rs.getString("D_Password"));
+                doctor.setSex(rs.getString("sex"));
+                doctor.setAge(rs.getInt("age"));
+                doctor.setPhone(rs.getString("phone"));
+                doctor.setPart(rs.getString("hospitalname"));
+                doctor.setPart2(rs.getString("departmentname"));
+                doctor.setPart3(rs.getString("ProfessionalTitle"));
+                doctor.setDiscript(rs.getString("introduction"));
+                return doctor;
+            } else {
+                return null;
+            }
+        } catch (Exception var7) {
+            var7.printStackTrace();
+            return null;
+        }
+    }
+
 
     public List<Doctor> findAll(int hospitalid, int departmentid) {
         try {

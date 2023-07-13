@@ -85,12 +85,12 @@
     <table>
       <thead>
       <tr>
-        <th>用户名</th>
-        <th>性别</th>
-        <th>年龄</th>
-        <th>电话号码</th>
-        <th>邮箱地址</th>
-        <th>出生日期</th>
+        <th>医院名</th>
+        <th>医院等级</th>
+        <th>医院地址</th>
+        <th>联系方式</th>
+        <th>院长姓名</th>
+        <th>营业时间</th>
         <th>运营状态</th>
         <th>介绍</th>
         <th></th>

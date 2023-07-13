@@ -40,7 +40,6 @@
             document.getElementById("validationCode_img").src = "generateCaptcha.jsp?time=" + new Date().getTime();
         }
     </script>
-
     <link rel="stylesheet" href="./css/login.css">
 </head>
 <body>
@@ -65,7 +64,8 @@
             <td><label for="validationCode">验证码</label></td>
             <td class="captcha-container">
                 <input type="text" name="validationCode" id="validationCode" placeholder="请输入验证码" lay-verify="required">
-                <img src="generateCaptcha.jsp" id="validationCode_img" title="看不清?换一个" onclick="loadimage();return false;" name="validationCode_img" align="middle">
+                <img src="generateCaptcha.jsp" id="validationCode_img" title="看不清?换一个"
+                     onclick="loadimage();return false;" name="validationCode_img" align="middle">
             </td>
         </tr>
 
@@ -74,18 +74,23 @@
             <td><input type="submit" value="登录"></td>
             <td><input type="reset" value="重置"></td>
         </tr>
+        <tr>
+            <td>
+                <a href="PatientRegister.jsp">
+                    注册
+                </a>
+            </td>
+        </tr>
     </table>
 </form>
-<a href="PatientRegister.jsp">
-    <input type="button" value="注册">
-</a>
-<div class="bottom-bar"></div>
+
+
 <!-- Check if there is a login error message from the backend and show password error alert -->
 <% if (request.getAttribute("Errormessage") != null) { %>
 <script>
     showMessage("<%= request.getAttribute("Errormessage") %>");
 </script>
 <% } %>
-
+<div class="bottom-bar"></div>
 </body>
 </html>

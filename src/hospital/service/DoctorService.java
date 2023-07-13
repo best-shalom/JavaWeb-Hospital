@@ -65,6 +65,10 @@ public class DoctorService {
         return doctorDao.find(phone);
     }
 
+    public Doctor DoctorShow(int id){
+        return doctorDao.find(id);
+    }
+
     public boolean DoctorUpdate(String phone,String name,String password,int age,String sex,String part){
         Doctor doctor=doctorDao.find(phone);
         if(doctor==null){

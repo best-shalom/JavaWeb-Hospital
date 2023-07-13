@@ -67,6 +67,11 @@
             background-color: #f2f2f2;
         }
     </style>
+    <script>
+        function showMessage(message) {
+            alert(message);
+        }
+    </script>
 </head>
 <body>
 <div>
@@ -86,7 +91,10 @@
     </ul>
 </div>
 
-
-
+<% if (request.getAttribute("Errormessage") != null) { %>
+<script>
+    showMessage("<%= request.getAttribute("Errormessage") %>");
+</script>
+<% } %>
 </body>
 </html>
