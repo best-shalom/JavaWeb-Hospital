@@ -7,6 +7,7 @@
         <entry key="file://$PROJECT_DIR$/web/DoctorShow.jsp" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/DoctorSickUpdate.jsp" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/PatientSelectTime.jsp" value="file://$PROJECT_DIR$/web" />
+        <entry key="file://$PROJECT_DIR$/web/PatientSickShow.jsp" value="file://$PROJECT_DIR$/web" />
         <entry key="file://$PROJECT_DIR$/web/generateCaptcha.jsp" value="file://$PROJECT_DIR$/web" />
       </map>
     </option>

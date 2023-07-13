@@ -86,6 +86,24 @@ public class SickDaoImpl implements SickDao {
         }
     }
 
+    public boolean update(int AppointmentID, String AppointmentDate,String AppointmentTime) {
+        try{
+            Connection connection=DbConnection.getConnection();
+            String sql="update appointment set AppointmentDate=?,AppointmentTime=? where AppointmentID=?";
+            PreparedStatement pt=connection.prepareStatement(sql);
+            pt.setString(1,AppointmentDate);
+            pt.setString(2,AppointmentTime);
+            pt.setInt(3,AppointmentID);
+            if(pt.executeUpdate()>0){
+                return true;
+            }
+            return false;
+        }catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+
     @Override
     public Sick findById(int id) {
         try{

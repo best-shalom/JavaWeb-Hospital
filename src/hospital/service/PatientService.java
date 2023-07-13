@@ -108,6 +108,16 @@ public class PatientService {
         s.setDepartmentname(DepartmentName);
         return sickDao.update(s);
     }
+
+    public boolean SickUpdate(int AppointmentID, String AppointmentDate,String AppointmentTime){
+        Sick s=sickDao.findById(AppointmentID);
+        if(s==null){
+            return false;
+        }
+        s.setData(AppointmentDate);
+        s.setTime(AppointmentTime);
+        return sickDao.update(AppointmentID,AppointmentDate,AppointmentTime);
+    }
     public boolean SickAdd(int patientId,int DoctorId,String P_Name,String D_Name,String AppointmentDate,String AppointmentTime,String HospitalName,String DepartmentName,String AppointmentStatus,String PaymentStatus,String PaymentAmount){
         Sick s=new Sick();
         s.setPatientId(patientId);

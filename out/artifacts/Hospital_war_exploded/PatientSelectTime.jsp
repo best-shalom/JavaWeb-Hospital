@@ -68,9 +68,10 @@
 <div>
     <!-- 导航栏 -->
     <ul class="navbar">
-        <li><a href="./PatientCenter.jsp?UserID=<%=UserID%>">首页</a></li>
-        <li><a href="./PatientShow.jsp?UserID=<%=UserID%>">个人信息</a></li>
-        <li><a href="./PatientSelectHospital.jsp?UserID=<%=UserID%>">挂号</a></li>
+        <li><a href="./PatientCenter.jsp?UserID=<%= UserID %>">首页</a></li>
+        <li><a href="./PatientShow.jsp?UserID=<%= UserID %>">个人信息</a></li>
+        <li><a href="./PatientSelectHospital.jsp?UserID=<%= UserID %>">预约挂号</a></li>
+        <li><a href="./PatientSickShow.jsp?UserID=<%= UserID %>">查看挂号信息</a></li>
     </ul>
 </div>
 
@@ -80,9 +81,6 @@
         <label for="date">选择日期:</label>
         <input type="date" id="date" name="Date">
         <br><br>
-        <table>
-            <!-- Table content here -->
-        </table>
     </div>
     <div>
         <table>
