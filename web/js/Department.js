@@ -1,4 +1,4 @@
-function DeleteDepartment(D_Id) {
+function DeleteDepartment(hospitalId, departmentId) {
     var confirmation = confirm('是否要删除该科室？');
     if (confirmation) {
         var xhr = new XMLHttpRequest();
@@ -16,11 +16,11 @@ function DeleteDepartment(D_Id) {
                 }
             }
         };
-        xhr.send('D_Id=' + encodeURIComponent(D_Id));
+        xhr.send('hospitalId=' + encodeURIComponent(hospitalId) + '&departmentId=' + encodeURIComponent(departmentId));
     }
 }
-function ReviseDepartment(D_Id) {
-    window.location.href = './DepartmentInformation.jsp?D_Id=' + D_Id;
+function ReviseDepartment(hospitalId, departmentId) {
+    window.location.href = "DepartmentInformation.jsp?hospitalId=" + hospitalId + "&departmentId=" + departmentId;
 }
 function goBack() {
     history.back();

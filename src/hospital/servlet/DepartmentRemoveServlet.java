@@ -13,11 +13,12 @@ public class DepartmentRemoveServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         try {
-            int D_Id = Integer.parseInt(request.getParameter("D_Id"));
+            int hospitalId = Integer.parseInt(request.getParameter("hospitalId"));
+            int departmentId = Integer.parseInt(request.getParameter("departmentId"));
             DepartmentDaoimpl departmentdaoimpl = new DepartmentDaoimpl();
-            departmentdaoimpl.delete(D_Id);
-            System.out.println(D_Id);
-            response.sendRedirect("./AdminDepartment.jsp");
+            departmentdaoimpl.delete(departmentId);
+            //System.out.println(departmentId);
+            response.sendRedirect("./AdminDepartment.jsp?hospitalId=" + hospitalId);
         } catch (Exception e) {
             e.printStackTrace();
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
